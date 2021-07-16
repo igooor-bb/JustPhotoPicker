@@ -6,7 +6,16 @@ Initially, the project was made for personal purposes, but it was decided to mak
 
 ## Contents
 
-[TOC]
+- [JustPhotoPicker](#justphotopicker)
+  * [Contents](#contents)
+  * [Requirements](#requirements)
+  * [Info.plist](#infoplist)
+  * [Usage](#usage)
+    + [Configuration](#configuration)
+    + [Processing the result](#processing-the-result)
+    + [Display](#display)
+  * [Configuration properties](#configuration-properties)
+  * [License](#license)
 
 ## Requirements
 
@@ -48,7 +57,7 @@ let photoPicker = JustPhotoPicker(configuration: config)
 
 To obtain the selected photos or the fact that the photos were not selected, the `JustPhotoPickerDelegate` protocol is used. 
 
-1. Setup a delegate for you photo picker:
+1. Setup a delegate for your photo picker:
 
 ```swift
 photoPicker.photoPickerDelegate = self
