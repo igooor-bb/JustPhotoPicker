@@ -1,0 +1,6 @@
+framework module JustPhotoPicker {
+  umbrella header "JustPhotoPicker-umbrella.h"
+
+  export *
+  module * { export * }
+}

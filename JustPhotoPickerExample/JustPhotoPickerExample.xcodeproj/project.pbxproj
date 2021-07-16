@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7785A3814521896EE092D9AB /* Pods_JustPhotoPickerExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C87747F430B92BB601B3A7 /* Pods_JustPhotoPickerExample.framework */; };
+		FBA2465126A1D93500CECE10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA2465026A1D93500CECE10 /* AppDelegate.swift */; };
+		FBA2465326A1D93500CECE10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA2465226A1D93500CECE10 /* SceneDelegate.swift */; };
+		FBA2465526A1D93500CECE10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA2465426A1D93500CECE10 /* ViewController.swift */; };
+		FBA2465826A1D93500CECE10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBA2465626A1D93500CECE10 /* Main.storyboard */; };
+		FBA2465A26A1D93B00CECE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBA2465926A1D93B00CECE10 /* Assets.xcassets */; };
+		FBA2465D26A1D93B00CECE10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBA2465B26A1D93B00CECE10 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		351379C6F2ECC8B338647357 /* Pods-JustPhotoPickerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustPhotoPickerExample.release.xcconfig"; path = "Target Support Files/Pods-JustPhotoPickerExample/Pods-JustPhotoPickerExample.release.xcconfig"; sourceTree = "<group>"; };
+		71C87747F430B92BB601B3A7 /* Pods_JustPhotoPickerExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JustPhotoPickerExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		900C61F2C0A5980360A0D0EB /* Pods-JustPhotoPickerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustPhotoPickerExample.debug.xcconfig"; path = "Target Support Files/Pods-JustPhotoPickerExample/Pods-JustPhotoPickerExample.debug.xcconfig"; sourceTree = "<group>"; };
+		FBA2464D26A1D93500CECE10 /* JustPhotoPickerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustPhotoPickerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBA2465026A1D93500CECE10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FBA2465226A1D93500CECE10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FBA2465426A1D93500CECE10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FBA2465726A1D93500CECE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FBA2465926A1D93B00CECE10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FBA2465C26A1D93B00CECE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FBA2465E26A1D93B00CECE10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FBA2464A26A1D93500CECE10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7785A3814521896EE092D9AB /* Pods_JustPhotoPickerExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		31FBB985A43382AA90F67557 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71C87747F430B92BB601B3A7 /* Pods_JustPhotoPickerExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDEF6439E7D19430173F5A5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				900C61F2C0A5980360A0D0EB /* Pods-JustPhotoPickerExample.debug.xcconfig */,
+				351379C6F2ECC8B338647357 /* Pods-JustPhotoPickerExample.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FBA2464426A1D93500CECE10 = {
+			isa = PBXGroup;
+			children = (
+				FBA2464F26A1D93500CECE10 /* JustPhotoPickerExample */,
+				FBA2464E26A1D93500CECE10 /* Products */,
+				BDEF6439E7D19430173F5A5F /* Pods */,
+				31FBB985A43382AA90F67557 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FBA2464E26A1D93500CECE10 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FBA2464D26A1D93500CECE10 /* JustPhotoPickerExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FBA2464F26A1D93500CECE10 /* JustPhotoPickerExample */ = {
+			isa = PBXGroup;
+			children = (
+				FBA2465026A1D93500CECE10 /* AppDelegate.swift */,
+				FBA2465226A1D93500CECE10 /* SceneDelegate.swift */,
+				FBA2465426A1D93500CECE10 /* ViewController.swift */,
+				FBA2465626A1D93500CECE10 /* Main.storyboard */,
+				FBA2465926A1D93B00CECE10 /* Assets.xcassets */,
+				FBA2465B26A1D93B00CECE10 /* LaunchScreen.storyboard */,
+				FBA2465E26A1D93B00CECE10 /* Info.plist */,
+			);
+			path = JustPhotoPickerExample;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FBA2464C26A1D93500CECE10 /* JustPhotoPickerExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBA2466126A1D93B00CECE10 /* Build configuration list for PBXNativeTarget "JustPhotoPickerExample" */;
+			buildPhases = (
+				B49AFD7DC9B78D181D98D07B /* [CP] Check Pods Manifest.lock */,
+				FBA2464926A1D93500CECE10 /* Sources */,
+				FBA2464A26A1D93500CECE10 /* Frameworks */,
+				FBA2464B26A1D93500CECE10 /* Resources */,
+				7CAA310EEA2F9F569179ED7F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JustPhotoPickerExample;
+			productName = JustPhotoPickerExample;
+			productReference = FBA2464D26A1D93500CECE10 /* JustPhotoPickerExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FBA2464526A1D93500CECE10 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					FBA2464C26A1D93500CECE10 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = FBA2464826A1D93500CECE10 /* Build configuration list for PBXProject "JustPhotoPickerExample" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FBA2464426A1D93500CECE10;
+			productRefGroup = FBA2464E26A1D93500CECE10 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FBA2464C26A1D93500CECE10 /* JustPhotoPickerExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FBA2464B26A1D93500CECE10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBA2465D26A1D93B00CECE10 /* LaunchScreen.storyboard in Resources */,
+				FBA2465A26A1D93B00CECE10 /* Assets.xcassets in Resources */,
+				FBA2465826A1D93500CECE10 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7CAA310EEA2F9F569179ED7F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JustPhotoPickerExample/Pods-JustPhotoPickerExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JustPhotoPickerExample/Pods-JustPhotoPickerExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JustPhotoPickerExample/Pods-JustPhotoPickerExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B49AFD7DC9B78D181D98D07B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JustPhotoPickerExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FBA2464926A1D93500CECE10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBA2465526A1D93500CECE10 /* ViewController.swift in Sources */,
+				FBA2465126A1D93500CECE10 /* AppDelegate.swift in Sources */,
+				FBA2465326A1D93500CECE10 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FBA2465626A1D93500CECE10 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBA2465726A1D93500CECE10 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FBA2465B26A1D93B00CECE10 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBA2465C26A1D93B00CECE10 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FBA2465F26A1D93B00CECE10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FBA2466026A1D93B00CECE10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FBA2466226A1D93B00CECE10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 900C61F2C0A5980360A0D0EB /* Pods-JustPhotoPickerExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = JustPhotoPickerExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = igooor.bb.JustPhotoPickerExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FBA2466326A1D93B00CECE10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 351379C6F2ECC8B338647357 /* Pods-JustPhotoPickerExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = JustPhotoPickerExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = igooor.bb.JustPhotoPickerExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FBA2464826A1D93500CECE10 /* Build configuration list for PBXProject "JustPhotoPickerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBA2465F26A1D93B00CECE10 /* Debug */,
+				FBA2466026A1D93B00CECE10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBA2466126A1D93B00CECE10 /* Build configuration list for PBXNativeTarget "JustPhotoPickerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBA2466226A1D93B00CECE10 /* Debug */,
+				FBA2466326A1D93B00CECE10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FBA2464526A1D93500CECE10 /* Project object */;
+}
