@@ -9,6 +9,8 @@ Initially, the project was made for personal purposes, but it was decided to mak
 - [JustPhotoPicker](#justphotopicker)
   * [Contents](#contents)
   * [Requirements](#requirements)
+  * [Installation](#installation)
+    + [Using CocoaPods](#using-cocoapods)
   * [Info.plist](#infoplist)
   * [Usage](#usage)
     + [Configuration](#configuration)
@@ -21,6 +23,27 @@ Initially, the project was made for personal purposes, but it was decided to mak
 
 - iOS/iPadOS 13.0+
 - Xcode 11.0+
+
+## Installation
+
+### Using CocoaPods
+
+You can use [CocoaPods](http://cocoapods.org/) to install `JustPhotoPicker` by adding folowing lines to your `Podfile`:
+
+```ruby
+platform :ios, '13.0'
+use_frameworks!
+
+target 'ApplicationName' do
+    pod 'JustPhotoPicker'
+end
+```
+
+Then just write the command in the terminal to install:
+
+```bash
+$ pod install
+```
 
 ## Info.plist
 
@@ -67,13 +90,13 @@ photoPicker.photoPickerDelegate = self
 
 ```swift
 extension ViewController: JustPhotoPickerDelegate {
-func didSelect(with photoPicker: JustPhotoPicker, images: [UIImage]) {
-print("Did select")
-}
+  func didSelect(with photoPicker: JustPhotoPicker, images: [UIImage]) {
+    print("Selected \(image.count) images")
+  }
 
-func didNotSelect(with photoPicker: JustPhotoPicker) {
-print("didNot")
-}
+  func didNotSelect(with photoPicker: JustPhotoPicker) {
+    print("Did not select any images")
+  }
 }
 ```
 
