@@ -1,5 +1,11 @@
 # JustPhotoPicker
 
+<p align="left">
+    <img src="https://img.shields.io/cocoapods/p/JustPhotoPicker" />
+    <img src="https://img.shields.io/github/license/igooor-bb/JustPhotoPicker" />
+    <img src="https://img.shields.io/cocoapods/v/JustPhotoPicker" />
+</p>
+
 JustPhotoPicker is a simple and minimalistic photo picker for iOS written in Swift.
 
 Initially, the project was made for personal purposes, but it was decided to make it publicly available for use and contribution in improvement.
@@ -13,6 +19,7 @@ Initially, the project was made for personal purposes, but it was decided to mak
   * [Requirements](#requirements)
   * [Installation](#installation)
     + [Using CocoaPods](#using-cocoapods)
+    + [Using Swift Package Manager](#using-swift-package-manager)
   * [Info.plist](#infoplist)
   * [Usage](#usage)
     + [Configuration](#configuration)
@@ -46,6 +53,16 @@ Then just write the command in the terminal to install:
 ```bash
 $ pod install
 ```
+
+### Using Swift Package Manager
+
+You can use Swift Package Manager to install JustPhotoPicker using Xcode:
+
+1. Open your project in Xcode
+2. Open "File" -> "Swift Packages" -> "Add Package Dependency..."
+3. Paste the repository URL: https://github.com/igooor-bb/JustPhotoPicker
+4. Click "Next" a couple of times and finish adding
+
 
 ## Info.plist
 
