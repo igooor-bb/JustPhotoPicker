@@ -10,5 +10,6 @@ Pod::Spec.new do |spec|
 
   spec.platform     = :ios, "13.0"
   spec.source       = { :git => "https://github.com/igooor-bb/JustPhotoPicker.git", :tag => "#{spec.version}" }
-  spec.source_files = "Source/**/*.swift"
+  spec.source_files = "Source/**/*.swift",
+  spec.swift_version = '5.1'
 end
