@@ -4,6 +4,8 @@ JustPhotoPicker is a simple and minimalistic photo picker for iOS written in Swi
 
 Initially, the project was made for personal purposes, but it was decided to make it publicly available for use and contribution in improvement.
 
+<img src="./Images/demo.gif" alt="Demo" style="zoom:67%;" />
+
 ## Contents
 
 - [JustPhotoPicker](#justphotopicker)
