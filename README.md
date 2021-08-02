@@ -89,8 +89,8 @@ You can change some visual and logical parameters using the `JustPhotoPickerConf
 
 ```swift
 var config = JustPhotoPickerConfiguration()
-configuration.selectionLimit = 2
-configuration.isSelectionRequired = true
+config.selectionLimit = 2
+config.isSelectionRequired = true
 // Configuration vibes...
 let photoPicker = JustPhotoPicker(configuration: config)
 ```
