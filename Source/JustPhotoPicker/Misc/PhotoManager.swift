@@ -81,8 +81,8 @@ class PhotoManager: NSObject {
     ///   - completion: The closure that is executed when the request completes
     public func getThumbnail(for asset: PHAsset, size: CGSize, completion: @escaping (UIImage?) -> ()) {
         let options = PHImageRequestOptions()
-        options.deliveryMode = .opportunistic
-        options.resizeMode = .fast
+        options.resizeMode = .none
+        options.deliveryMode = .highQualityFormat
         PHCachingImageManager.default().requestImage(
             for: asset,
             targetSize: size,
