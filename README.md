@@ -26,6 +26,7 @@ Initially, the project was made for personal purposes, but it was decided to mak
     + [Processing the result](#processing-the-result)
     + [Display](#display)
   * [Configuration properties](#configuration-properties)
+  * [Contribution](#contribution)
   * [License](#license)
 
 ## Requirements
@@ -147,6 +148,16 @@ config.showsPhotoPreview = true
 config.allowsPhotoPreviewZoom = false
 // Configuration vibes...
 ```
+
+## Contribution
+To contribute, use the follow "fork-and-pull" git workflow:
+1. Fork the repository on github
+2. Clone the project to your own machine
+3. Commit changes to your own branch
+4. Push your work back up to your fork
+5. Submit a pull request so that I can review your changes
+
+*NOTE: Be sure to merge the latest from "upstream" before making a pull request!*
 
 ## License
 
