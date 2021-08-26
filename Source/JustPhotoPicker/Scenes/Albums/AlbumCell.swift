@@ -15,7 +15,7 @@ class AlbumCell: UITableViewCell {
         albumImage.layer.borderColor = UIColor.white.cgColor
         albumImage.layer.masksToBounds = true
         albumImage.backgroundColor = .clear
-        albumImage.cornerRadius = JustConfig.albumThumbnailCornerRaduis
+        albumImage.cornerRadius = JustConfig.albumThumbnailCornerRadius
         albumImage.contentMode = .scaleAspectFill
         albumImage.translatesAutoresizingMaskIntoConstraints = false
         return albumImage

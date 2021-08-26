@@ -27,6 +27,7 @@ open class JustPhotoPicker: UINavigationController {
     // MARK: - Public properties
     /// The object that acts as the delegate of the photo picker.
     public var photoPickerDelegate: JustPhotoPickerDelegate?
+    public var didFinishPicking: (([UIImage], Bool) -> ())?
     
     // MARK: - Properties
     private let transition = ZoomTransitioningDelegate()
@@ -121,6 +122,7 @@ open class JustPhotoPicker: UINavigationController {
     @objc private func cancelAction() {
         DataStorage.shared.removeAll()
         photoPickerDelegate?.didNotSelect(with: self)
+        didFinishPicking?([], true)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -138,6 +140,7 @@ open class JustPhotoPicker: UINavigationController {
             let images: [UIImage] = manager.getOriginalImages(for: assets)
             
             photoPickerDelegate?.didSelect(with: self, images: images)
+            didFinishPicking?(images, false)
             dismiss(animated: true, completion: nil)
         }
     }

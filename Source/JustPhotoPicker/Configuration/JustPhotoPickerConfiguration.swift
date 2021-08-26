@@ -15,25 +15,25 @@ public struct JustPhotoPickerConfiguration {
     
     /// Corner radius of photo album thumbnails.
     /// Must be non-negative.
-    public var albumThumbnailCornerRaduis: CGFloat = 5 {
+    public var albumThumbnailCornerRadius: CGFloat = 5 {
         willSet {
             assert(newValue >= 0, "Corner radius must be non-negative")
         }
         didSet {
-            let value = albumThumbnailCornerRaduis
-            albumThumbnailCornerRaduis = value == 0 ? 1 : value
+            let value = albumThumbnailCornerRadius
+            albumThumbnailCornerRadius = value == 0 ? 1 : value
         }
     }
     
     /// Corner radius of photo grid thumbnails.
     /// Must be non-negative.
-    public var photoCardCornerRaduis: CGFloat = 3 {
+    public var photoCardCornerRadius: CGFloat = 3 {
         willSet {
             assert(newValue >= 0, "Corner radius must be non-negative")
         }
         didSet {
-            let value = photoCardCornerRaduis
-            photoCardCornerRaduis = value == 0 ? 1 : value
+            let value = photoCardCornerRadius
+            photoCardCornerRadius = value == 0 ? 1 : value
         }
     }
     

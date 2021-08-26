@@ -20,18 +20,15 @@ class ViewController: UIViewController {
         config.isSelectionRequired = true
         config.overlayTintColor = .systemPurple
         let photoPicker = JustPhotoPicker(configuration: config)
-        photoPicker.photoPickerDelegate = self
+        photoPicker.didFinishPicking = { images, canceled in
+            if canceled {
+                print("Did not select any images")
+                return
+            }
+            
+            print("Selected \(images.count) images")
+        }
         self.present(photoPicker, animated: true, completion: nil)
-    }
-}
-
-extension ViewController: JustPhotoPickerDelegate {
-    func didSelect(with photoPicker: JustPhotoPicker, images: [UIImage]) {
-        print("Selected \(images.count) images")
-    }
-    
-    func didNotSelect(with photoPicker: JustPhotoPicker) {
-        print("Did not select any images")
     }
 }
 

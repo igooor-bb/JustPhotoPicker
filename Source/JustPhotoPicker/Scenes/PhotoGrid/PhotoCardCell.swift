@@ -71,7 +71,7 @@ class PhotoCardCell: UICollectionViewCell {
     
     // MARK: - Inerface configuration
     private func configureContentView() {
-        contentView.cornerRadius = JustConfig.photoCardCornerRaduis
+        contentView.cornerRadius = JustConfig.photoCardCornerRadius
     }
     
     private func configureImageView() {

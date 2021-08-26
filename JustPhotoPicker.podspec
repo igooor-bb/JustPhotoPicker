@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "JustPhotoPicker"
-  spec.version      = "1.0.1"
+  spec.version      = "1.1.0"
   spec.summary      = "Simple and minimalistic photo picker for iOS"
   spec.description  = "Simple and minimalistic photo picker for iOS written in Swift"
   spec.homepage     = "https://github.com/igooor-bb/JustPhotoPicker"

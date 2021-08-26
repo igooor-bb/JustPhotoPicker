@@ -24,6 +24,8 @@ Initially, the project was made for personal purposes, but it was decided to mak
   * [Usage](#usage)
     + [Configuration](#configuration)
     + [Processing the result](#processing-the-result)
+      + [Using the delegate](#using-the-delegate)
+      + [Using the closure](#using-the-closure)
     + [Display](#display)
   * [Configuration properties](#configuration-properties)
   * [Contribution](#contribution)
@@ -98,7 +100,9 @@ let photoPicker = JustPhotoPicker(configuration: config)
 
 ### Processing the result
 
-To obtain the selected photos or the fact that the photos were not selected, the `JustPhotoPickerDelegate` protocol is used. 
+#### Using the delegate
+
+To obtain the selected photos or the fact that the photos were not selected, the `JustPhotoPickerDelegate` protocol can be used. 
 
 1. Setup a delegate for your photo picker:
 
@@ -119,6 +123,24 @@ extension ViewController: JustPhotoPickerDelegate {
   }
 }
 ```
+
+#### Using the closure
+
+You also can use `didFinishPicking` closure of `JustPhotoPicker` class to obtain the selected photos:
+
+```swift
+let photoPicker = JustPhotoPicker(configuration: config)
+photoPicker.didFinishPicking = { images, canceled in
+	if canceled {
+  	print("Did not select any images")
+        return
+  }
+
+  print("Selected \(images.count) images")
+}
+```
+
+The closure takes two parameters. The first one is either a list of selected images or an empty list in case if a user did not select any. The second parameter is a boolean flag indicating whether a user canceled the selection.
 
 ### Display
 
