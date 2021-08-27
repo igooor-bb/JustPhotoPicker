@@ -131,9 +131,9 @@ You also can use `didFinishPicking` closure of `JustPhotoPicker` class to obtain
 ```swift
 let photoPicker = JustPhotoPicker(configuration: config)
 photoPicker.didFinishPicking = { images, canceled in
-	if canceled {
-  	print("Did not select any images")
-        return
+  if canceled {
+    print("Did not select any images")
+    return
   }
 
   print("Selected \(images.count) images")
