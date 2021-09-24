@@ -1,0 +1,9 @@
+"JustPhotoPicker.Albums" = "Альбомы";
+"JustPhotoPicker.FixedSelection" = "Выберите %d фото";
+"JustPhotoPicker.Selection" = "Выберите до %d фото";
+"JustPhotoPicker.SelectedLabel" = "%d выбрано";
+"JustPhotoPicker.EmptyAlbumLabel" = "Здесь нет фотографий";
+"JustPhotoPicker.PermissionRequired" = "Требуется разрешение";
+"JustPhotoPicker.PermissionRequiredDescription" = "Измените доступ к Фото в настройках Конфиденциальности";
+"JustPhotoPicker.Settings" = "Настройки";
+"JustPhotoPicker.Cancel" = "Отменить";

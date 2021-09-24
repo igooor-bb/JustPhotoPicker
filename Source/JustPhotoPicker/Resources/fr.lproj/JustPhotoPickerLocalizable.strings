@@ -1,0 +1,9 @@
+"JustPhotoPicker.Albums" = "Albums";
+"JustPhotoPicker.FixedSelection" = "Sélectionnez %d photos";
+"JustPhotoPicker.Selection" = "Sélectionnez jusqu'à %d photos";
+"JustPhotoPicker.SelectedLabel" = "%d sélectionnés";
+"JustPhotoPicker.EmptyAlbumLabel" = "Il n'y a pas de photos ici";
+"JustPhotoPicker.PermissionRequired" = "Autorisation requise";
+"JustPhotoPicker.PermissionRequiredDescription" = "Modifier l'accès aux photos dans les paramètres de confidentialité";
+"JustPhotoPicker.Settings" = "Paramètres";
+"JustPhotoPicker.Cancel" = "Annuler";

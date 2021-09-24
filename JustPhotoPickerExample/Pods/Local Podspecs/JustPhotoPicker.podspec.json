@@ -1,6 +1,6 @@
 {
   "name": "JustPhotoPicker",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "summary": "Simple and minimalistic photo picker for iOS",
   "description": "Simple and minimalistic photo picker for iOS written in Swift",
   "homepage": "https://github.com/igooor-bb/JustPhotoPicker",
@@ -15,7 +15,10 @@
   },
   "source": {
     "git": "https://github.com/igooor-bb/JustPhotoPicker.git",
-    "tag": "1.0.0"
+    "tag": "1.2.0"
   },
-  "source_files": "Source/**/*.swift"
+  "source_files": "Source/**/*.swift",
+  "swift_versions": "5.1",
+  "resources": "Source/JustPhotoPicker/Resources/*",
+  "swift_version": "5.1"
 }

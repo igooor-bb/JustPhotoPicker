@@ -99,7 +99,9 @@ open class JustPhotoPicker: UINavigationController {
     
     private func updateToolbarLabel() {
         let count = DataStorage.shared.count
-        let text = "\(count) selected"
+        
+        let localizedString = localizedString(for: "JustPhotoPicker.SelectedLabel")
+        let text = String(format: localizedString, count)
         descriptionLabel.title = text
     }
     

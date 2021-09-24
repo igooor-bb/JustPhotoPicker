@@ -162,7 +162,7 @@ class PhotoGridViewController: UIViewController {
         collectionView.isHidden = true
         
         let label = UILabel()
-        label.text = "Ooops... There are no photos here"
+        label.text = localizedString(for: "JustPhotoPicker.EmptyAlbumLabel")
         label.textColor = JustConfig.labelColor
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
@@ -177,11 +177,12 @@ class PhotoGridViewController: UIViewController {
     private func showPermissionAlert() {
         // If there is no access to photos,
         // show an alert with the ability to go to the settings.
-        let title = "Permission required"
-        let message = "Change access to Photos in Privacy Settings"
+        let title = localizedString(for: "JustPhotoPicker.PermissionRequired")
+        let message = localizedString(for: "JustPhotoPicker.PermissionRequiredDescription")
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let settingsAction = UIAlertAction(title: "Settings", style: .default) { [weak self] _ in
+        let settingsTitle = localizedString(for: "JustPhotoPicker.Settings")
+        let settingsAction = UIAlertAction(title: settingsTitle, style: .default) { [weak self] _ in
             self?.dismiss(animated: true, completion: nil)
             guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
                 return
@@ -191,7 +192,8 @@ class PhotoGridViewController: UIViewController {
             }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { [weak self] _ in
+        let cancelTitle = localizedString(for: "JustPhotoPicker.Cancel")
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel) { [weak self] _ in
             self?.dismiss(animated: true, completion: nil)
         }
         
@@ -247,9 +249,11 @@ class PhotoGridViewController: UIViewController {
             // to the need to select a certain number of photos.
             let isSelectionRequired = JustConfig.isSelectionRequired
             if isSelectionRequired {
-                descriptionLabel.text = "Select \(selectionLimit) photos"
+                let localizedString = localizedString(for: "JustPhotoPicker.FixedSelection")
+                descriptionLabel.text = String(format: localizedString, selectionLimit)
             } else {
-                descriptionLabel.text = "Select up to \(selectionLimit) photos"
+                let localizedString = localizedString(for: "JustPhotoPicker.Selection")
+                descriptionLabel.text = String(format: localizedString, selectionLimit)
             }
         }
         

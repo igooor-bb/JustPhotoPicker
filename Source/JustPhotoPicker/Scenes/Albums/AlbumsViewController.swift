@@ -35,7 +35,7 @@ class AlbumsViewController: UIViewController {
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Albums"
+        self.title = localizedString(for: "JustPhotoPicker.Albums")
         
         // The scene with photo grid is displayed first,
         // so redirect there to correctly display the back button.
