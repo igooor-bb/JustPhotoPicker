@@ -10,26 +10,29 @@ JustPhotoPicker is a simple and minimalistic photo picker for iOS written in Swi
 
 Initially, the project was made for personal purposes, but it was decided to make it publicly available for use and contribution in improvement.
 
-<img src="./Images/demo.gif" alt="Demo" style="zoom:67%;" />
+<img src="./Images/demo.png" alt="Demo"/>
+
+<center>Source of sample images in the gallery: <a href="https://www.theverge.com/pages/wallpapers">The Verge</a> <cetner>
 
 ## Contents
 
 - [JustPhotoPicker](#justphotopicker)
-  * [Contents](#contents)
-  * [Requirements](#requirements)
-  * [Installation](#installation)
-    + [Using CocoaPods](#using-cocoapods)
-    + [Using Swift Package Manager](#using-swift-package-manager)
-  * [Info.plist](#infoplist)
-  * [Usage](#usage)
-    + [Configuration](#configuration)
-    + [Processing the result](#processing-the-result)
-      + [Using the delegate](#using-the-delegate)
-      + [Using the closure](#using-the-closure)
-    + [Display](#display)
-  * [Configuration properties](#configuration-properties)
-  * [Contribution](#contribution)
-  * [License](#license)
+  - [Contents](#contents)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+    - [Using CocoaPods](#using-cocoapods)
+    - [Using Swift Package Manager](#using-swift-package-manager)
+  - [Info.plist](#infoplist)
+  - [Usage](#usage)
+    - [Configuration](#configuration)
+    - [Processing the result](#processing-the-result)
+      - [Using the delegate](#using-the-delegate)
+      - [Using the closure](#using-the-closure)
+    - [Display](#display)
+  - [Configuration properties](#configuration-properties)
+  - [Localization](#localization)
+  - [Contribution](#contribution)
+  - [License](#license)
 
 ## Requirements
 
@@ -171,7 +174,19 @@ config.allowsPhotoPreviewZoom = false
 // Configuration vibes...
 ```
 
+## Localization
+
+JustPhotoPicker is now translated into the following languages:
+
+- English (Base)
+- German
+- French
+- Russian
+
+If you want to add or correct localization, you are welcome to [contribute](#contribution).
+
 ## Contribution
+
 To contribute, use the follow "fork-and-pull" git workflow:
 1. Fork the repository on github
 2. Clone the project to your own machine
