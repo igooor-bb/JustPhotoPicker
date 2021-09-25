@@ -12,32 +12,32 @@ Initially, the project was made for personal purposes, but it was decided to mak
 
 <img src="./Images/demo.png" alt="Demo"/>
 
-<center>Source of sample images in the gallery: <a href="https://www.theverge.com/pages/wallpapers">The Verge</a> <cetner>
+Source of sample images in the gallery: [The Verge](https://www.theverge.com/pages/wallpapers)
 
 ## Contents
 
-- [JustPhotoPicker](#justphotopicker)
-  - [Contents](#contents)
-  - [Requirements](#requirements)
-  - [Installation](#installation)
-    - [Using CocoaPods](#using-cocoapods)
-    - [Using Swift Package Manager](#using-swift-package-manager)
-  - [Info.plist](#infoplist)
-  - [Usage](#usage)
-    - [Configuration](#configuration)
-    - [Processing the result](#processing-the-result)
-      - [Using the delegate](#using-the-delegate)
-      - [Using the closure](#using-the-closure)
-    - [Display](#display)
-  - [Configuration properties](#configuration-properties)
-  - [Localization](#localization)
-  - [Contribution](#contribution)
-  - [License](#license)
+-   [JustPhotoPicker](#justphotopicker)
+    -   [Contents](#contents)
+    -   [Requirements](#requirements)
+    -   [Installation](#installation)
+        -   [Using CocoaPods](#using-cocoapods)
+        -   [Using Swift Package Manager](#using-swift-package-manager)
+    -   [Info.plist](#infoplist)
+    -   [Usage](#usage)
+        -   [Configuration](#configuration)
+        -   [Processing the result](#processing-the-result)
+            -   [Using the delegate](#using-the-delegate)
+            -   [Using the closure](#using-the-closure)
+        -   [Display](#display)
+    -   [Configuration properties](#configuration-properties)
+    -   [Localization](#localization)
+    -   [Contribution](#contribution)
+    -   [License](#license)
 
 ## Requirements
 
-- iOS/iPadOS 13.0+
-- Xcode 11.0+
+-   iOS/iPadOS 13.0+
+-   Xcode 11.0+
 
 ## Installation
 
@@ -64,17 +64,16 @@ $ pod install
 
 You can use Swift Package Manager to install JustPhotoPicker using Xcode:
 
-1. Open your project in Xcode
-2. Open "File" -> "Swift Packages" -> "Add Package Dependency..."
-3. Paste the repository URL: https://github.com/igooor-bb/JustPhotoPicker
-4. Click "Next" a couple of times and finish adding
-
+1.  Open your project in Xcode
+2.  Open "File" -> "Swift Packages" -> "Add Package Dependency..."
+3.  Paste the repository URL: <https://github.com/igooor-bb/JustPhotoPicker>
+4.  Click "Next" a couple of times and finish adding
 
 ## Info.plist
 
 To make your application have access to photos, add the following entity to the file `Info.plist`:
 
-- Privacy - Photo Library Usage Description
+-   Privacy - Photo Library Usage Description
 
 ```xml
 <key>NSPhotoLibraryUsageDescription</key>
@@ -107,13 +106,13 @@ let photoPicker = JustPhotoPicker(configuration: config)
 
 To obtain the selected photos or the fact that the photos were not selected, the `JustPhotoPickerDelegate` protocol can be used. 
 
-1. Setup a delegate for your photo picker:
+1.  Setup a delegate for your photo picker:
 
 ```swift
 photoPicker.photoPickerDelegate = self
 ```
 
-2. Make your view controller conform the delegate protocol and implement both required methods:
+2.  Make your view controller conform the delegate protocol and implement both required methods:
 
 ```swift
 extension ViewController: JustPhotoPickerDelegate {
@@ -178,21 +177,22 @@ config.allowsPhotoPreviewZoom = false
 
 JustPhotoPicker is now translated into the following languages:
 
-- English (Base)
-- German
-- French
-- Russian
+-   English (Base)
+-   German
+-   French
+-   Russian
 
 If you want to add or correct localization, you are welcome to [contribute](#contribution).
 
 ## Contribution
 
 To contribute, use the follow "fork-and-pull" git workflow:
-1. Fork the repository on github
-2. Clone the project to your own machine
-3. Commit changes to your own branch
-4. Push your work back up to your fork
-5. Submit a pull request so that I can review your changes
+
+1.  Fork the repository on github
+2.  Clone the project to your own machine
+3.  Commit changes to your own branch
+4.  Push your work back up to your fork
+5.  Submit a pull request so that I can review your changes
 
 *NOTE: Be sure to merge the latest from "upstream" before making a pull request!*
 
