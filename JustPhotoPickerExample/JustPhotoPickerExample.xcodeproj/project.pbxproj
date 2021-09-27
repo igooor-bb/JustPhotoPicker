@@ -20,6 +20,7 @@
 		351379C6F2ECC8B338647357 /* Pods-JustPhotoPickerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustPhotoPickerExample.release.xcconfig"; path = "Target Support Files/Pods-JustPhotoPickerExample/Pods-JustPhotoPickerExample.release.xcconfig"; sourceTree = "<group>"; };
 		71C87747F430B92BB601B3A7 /* Pods_JustPhotoPickerExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JustPhotoPickerExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		900C61F2C0A5980360A0D0EB /* Pods-JustPhotoPickerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustPhotoPickerExample.debug.xcconfig"; path = "Target Support Files/Pods-JustPhotoPickerExample/Pods-JustPhotoPickerExample.debug.xcconfig"; sourceTree = "<group>"; };
+		FB0552B02701A7A30091DEB2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		FB4E66B326FE13EF00F3BE03 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		FB4E66B426FE144200F3BE03 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		FB4E66B526FE145900F3BE03 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -141,6 +142,7 @@
 				ru,
 				de,
 				fr,
+				es,
 			);
 			mainGroup = FBA2464426A1D93500CECE10;
 			productRefGroup = FBA2464E26A1D93500CECE10 /* Products */;
@@ -246,6 +248,7 @@
 				FB4E66B326FE13EF00F3BE03 /* ru */,
 				FB4E66B426FE144200F3BE03 /* de */,
 				FB4E66B526FE145900F3BE03 /* fr */,
+				FB0552B02701A7A30091DEB2 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
