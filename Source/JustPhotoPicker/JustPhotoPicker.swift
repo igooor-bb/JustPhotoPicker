@@ -17,7 +17,8 @@ open class JustPhotoPicker: UINavigationController {
     
     private lazy var doneButton: UIBarButtonItem = {
         let done = UIBarButtonItem(
-            barButtonSystemItem: .done,
+            title: localizedString(for: "JustPhotoPicker.Done"),
+            style: .done,
             target: self,
             action: #selector(doneAction))
         done.tintColor = JustConfig.accentColor
@@ -76,7 +77,8 @@ open class JustPhotoPicker: UINavigationController {
     
     private func configureToolbar() {
         let cancelButton = UIBarButtonItem(
-            barButtonSystemItem: .cancel,
+            title: localizedString(for: "JustPhotoPicker.Cancel"),
+            style: .plain,
             target: self,
             action: #selector(cancelAction))
         cancelButton.tintColor = JustConfig.accentColor
