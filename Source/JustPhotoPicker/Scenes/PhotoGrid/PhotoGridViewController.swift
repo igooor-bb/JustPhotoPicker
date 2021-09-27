@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-class PhotoGridViewController: UIViewController {
+internal final class PhotoGridViewController: UIViewController {
     // MARK: - Public properties
     
     /// Album model item to display in grid.
@@ -23,7 +23,7 @@ class PhotoGridViewController: UIViewController {
     private var imagesData = PHFetchResult<PHAsset>()
     private var photoManager = PhotoManager()
     private lazy var loadingQueue = OperationQueue()
-    private lazy var loadingOperations: [IndexPath : DataLoadOperation] = [:]
+    private lazy var loadingOperations: [IndexPath: DataLoadOperation] = [:]
     
     // MARK: - Interface properties
     private var topSpacing: CGFloat = 5
@@ -31,23 +31,19 @@ class PhotoGridViewController: UIViewController {
     private var leftSpacing: CGFloat = 5
     private var rightSpacing: CGFloat = 5
     private var interSpacing: CGFloat {
-        get {
-            let portrait = JustConfig.portraitModeGridInterimSpacing
-            let landsacape = JustConfig.landscapeModeGridInterimSpacing
-            return UIWindow.isLandscape ? landsacape : portrait
-        }
+        let portrait = JustConfig.portraitModeGridInterimSpacing
+        let landsacape = JustConfig.landscapeModeGridInterimSpacing
+        return UIWindow.isLandscape ? landsacape : portrait
     }
     
     private var cellWidth: CGFloat {
-        get {
-            let landscapeNumber = JustConfig.landscapeModeCellsInRow
-            let portraitNumber = JustConfig.portraitModeCellsInRow
-            let itemsInRow = CGFloat(UIWindow.isLandscape ? landscapeNumber : portraitNumber)
-            
-            let spacing: CGFloat = leftSpacing + rightSpacing + 2 * interSpacing
-            let cellWidth = (collectionView.frame.width - spacing) / itemsInRow
-            return cellWidth
-        }
+        let landscapeNumber = JustConfig.landscapeModeCellsInRow
+        let portraitNumber = JustConfig.portraitModeCellsInRow
+        let itemsInRow = CGFloat(UIWindow.isLandscape ? landscapeNumber : portraitNumber)
+
+        let spacing: CGFloat = leftSpacing + rightSpacing + 2 * interSpacing
+        let cellWidth = (collectionView.frame.width - spacing) / itemsInRow
+        return cellWidth
     }
     
     private lazy var collectionView: UICollectionView = {
@@ -72,8 +68,7 @@ class PhotoGridViewController: UIViewController {
         
         return collectionView
     }()
-    
-    
+
     // The description is used to tell the user how many images he needs or can choose.
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
@@ -216,7 +211,7 @@ class PhotoGridViewController: UIViewController {
         let constraints: [NSLayoutConstraint] = [
             collectionView.topAnchor.constraint(equalTo: guide.topAnchor),
             collectionView.leftAnchor.constraint(equalTo: guide.leftAnchor),
-            guide.rightAnchor.constraint(equalTo: collectionView.rightAnchor),
+            guide.rightAnchor.constraint(equalTo: collectionView.rightAnchor)
         ]
         
         NSLayoutConstraint.activate(constraints)
@@ -301,10 +296,11 @@ class PhotoGridViewController: UIViewController {
 
 // MARK: - UICollectionViewDataSource
 extension PhotoGridViewController: UICollectionViewDataSource {
+    // swiftlint:disable:next line_length
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? PhotoCardCell else { return }
         
-        let updateCellClosure: (UIImage?) -> () = { [unowned self] image in
+        let updateCellClosure: (UIImage?) -> Void = { [unowned self] image in
             cell.setThumbnail(image)
             self.loadingOperations.removeValue(forKey: indexPath)
         }
@@ -331,7 +327,8 @@ extension PhotoGridViewController: UICollectionViewDataSource {
             }
         }
     }
-    
+
+    // swiftlint:disable:next line_length
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         // Cancel pending data load operations when the data is no longer required.
         if let dataLoader = loadingOperations[indexPath] {
@@ -343,11 +340,15 @@ extension PhotoGridViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         imagesData.count
     }
-    
+
+    // swiftlint:disable:next line_length
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(
+        guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "PhotoCardCell",
-            for: indexPath) as! PhotoCardCell
+            for: indexPath) as? PhotoCardCell
+        else {
+            return UICollectionViewCell()
+        }
         let index = indexPath.item
         let asset = imagesData[index]
         cell.setSelection(DataStorage.shared.contains(asset))
@@ -361,7 +362,7 @@ extension PhotoGridViewController: UICollectionViewDataSourcePrefetching {
         for indexPath in indexPaths {
             // Initiate asynchronous loading of the assets for the cells
             // at the specified index paths.
-            if let _ = loadingOperations[indexPath] { return }
+            if loadingOperations[indexPath] != nil { return }
             
             let model = imagesData[indexPath.item]
             let size = CGSize(width: cellWidth, height: cellWidth)
@@ -385,6 +386,7 @@ extension PhotoGridViewController: UICollectionViewDataSourcePrefetching {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension PhotoGridViewController: UICollectionViewDelegateFlowLayout {
+    // swiftlint:disable:next line_length
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: cellWidth, height: cellWidth)
     }
@@ -458,8 +460,8 @@ extension PhotoGridViewController: UIGestureRecognizerDelegate {
 // MARK: - ZoomingViewController
 extension PhotoGridViewController: ZoomingViewController {
     func zoomingImageView(for transition: ZoomTransitioningDelegate) -> UIImageView? {
-        if let indexPath = selectedIndexPath {
-            let cell = collectionView.cellForItem(at: indexPath) as! PhotoCardCell
+        if let indexPath = selectedIndexPath,
+           let cell = collectionView.cellForItem(at: indexPath) as? PhotoCardCell {
             return cell.getImageView()
         } else {
             return nil

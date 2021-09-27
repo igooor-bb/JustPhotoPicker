@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol JustPhotoPickerDelegate {
+public protocol JustPhotoPickerDelegate: AnyObject {
     /// Tells the delegate that the user has selected photos
     /// and closed the picker with the done button.
     /// - Parameters:

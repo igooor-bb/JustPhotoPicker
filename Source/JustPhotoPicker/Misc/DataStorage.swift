@@ -9,7 +9,7 @@ import Foundation
 import PhotosUI
 
 /// Span for temporary storage for selected images.
-class DataStorage {
+internal class DataStorage {
     public static let shared = DataStorage()
     private init() {}
     
@@ -17,15 +17,13 @@ class DataStorage {
         didSet {
             // Send a notification when the number of selected photos changes.
             // Used to display a counter of selected photos in toolbar.
-            let nc = NotificationCenter.default
-            nc.post(name: Notification.Name("SelectionChanged"), object: nil)
+            let notificationCenter = NotificationCenter.default
+            notificationCenter.post(name: Notification.Name("SelectionChanged"), object: nil)
         }
     }
     
     public var count: Int {
-        get {
-            return selectedAssets.count
-        }
+        return selectedAssets.count
     }
     
     public func contains(_ asset: PHAsset) -> Bool {

@@ -7,16 +7,16 @@
 
 import UIKit
 
-protocol ZoomingViewController {
+internal protocol ZoomingViewController {
     func zoomingImageView(for transition: ZoomTransitioningDelegate) -> UIImageView?
 }
 
-enum TransitionState {
+internal enum TransitionState {
     case initial
     case final
 }
 
-class ZoomTransitioningDelegate: NSObject {
+internal final class ZoomTransitioningDelegate: NSObject {
     var transitionDuration: TimeInterval = 0.65
     var operation: UINavigationController.Operation = .none
     
@@ -29,26 +29,26 @@ class ZoomTransitioningDelegate: NSObject {
         backgroundViewController: UIViewController,
         imageViewInBackground: UIView,
         imageViewInForeground: UIView,
-        snapshotImageView: UIView) {
-        
+        snapshotImageView: UIView
+    ) {
         switch state {
         case .initial:
             // Set the initial appearance of the backgroundView and its image view.
             backgroundViewController.view.transform = CGAffineTransform.identity
             backgroundViewController.view.alpha = 1
-            
+
             snapshotImageView.frame = containerView.convert(
                 imageViewInBackground.frame,
                 from: imageViewInBackground.superview)
-            
+
         case .final:
             // Set the final scaled state of backgroundView.
             backgroundViewController.view.transform = CGAffineTransform(
                 scaleX: backgroundScale,
                 y: backgroundScale)
-            
+
             backgroundViewController.view.alpha = 0
-            
+
             snapshotImageView.frame = containerView.convert(
                 imageViewInForeground.frame,
                 from: imageViewInForeground.superview)
@@ -62,15 +62,15 @@ extension ZoomTransitioningDelegate: UINavigationControllerDelegate {
         animationControllerFor operation: UINavigationController.Operation,
         from fromVC: UIViewController,
         to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        // Make sure that both view controllers conform ZoomingViewController protocol.
-        if fromVC is ZoomingViewController && toVC is ZoomingViewController {
-            self.operation = operation
-            return self
-        } else {
-            return nil
+
+            // Make sure that both view controllers conform ZoomingViewController protocol.
+            if fromVC is ZoomingViewController && toVC is ZoomingViewController {
+                self.operation = operation
+                return self
+            } else {
+                return nil
+            }
         }
-    }
 }
 
 extension ZoomTransitioningDelegate: UIViewControllerAnimatedTransitioning {
@@ -80,8 +80,14 @@ extension ZoomTransitioningDelegate: UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let duration = transitionDuration(using: transitionContext)
-        let fromViewController = transitionContext.viewController(forKey: .from)!
-        let toViewController = transitionContext.viewController(forKey: .to)!
+
+        guard
+            let fromViewController = transitionContext.viewController(forKey: .from),
+            let toViewController = transitionContext.viewController(forKey: .to)
+        else {
+            return
+        }
+
         let containerView = transitionContext.containerView
         
         var backgroundViewController = fromViewController
@@ -94,15 +100,23 @@ extension ZoomTransitioningDelegate: UIViewControllerAnimatedTransitioning {
         
         // Get the imageview to animate.
         let possibleBackgroundImageView =
-            (backgroundViewController as? ZoomingViewController)?.zoomingImageView(for: self)
+        (backgroundViewController as? ZoomingViewController)?.zoomingImageView(for: self)
         let possibleForegroundImageView =
-            (foregroundViewController as? ZoomingViewController)?.zoomingImageView(for: self)
+        (foregroundViewController as? ZoomingViewController)?.zoomingImageView(for: self)
         
-        assert(possibleBackgroundImageView != nil, "Cannot find image view in backgroundVC in ZoomingTransitioningDelegate")
-        assert(possibleForegroundImageView != nil, "Cannot find image view in foregroundVC in ZoomingTransitioningDelegate")
-        
-        let backgroundImageView = possibleBackgroundImageView!
-        let foregroundImageView = possibleForegroundImageView!
+        assert(
+            possibleBackgroundImageView != nil,
+            "Cannot find image view in backgroundVC in ZoomingTransitioningDelegate")
+        assert(
+            possibleForegroundImageView != nil,
+            "Cannot find image view in foregroundVC in ZoomingTransitioningDelegate")
+
+        guard
+            let backgroundImageView = possibleBackgroundImageView,
+            let foregroundImageView = possibleForegroundImageView
+        else {
+            return
+        }
         
         let imageViewSnapshot = UIImageView(image: backgroundImageView.image)
         imageViewSnapshot.contentMode = .scaleAspectFill
@@ -137,23 +151,29 @@ extension ZoomTransitioningDelegate: UIViewControllerAnimatedTransitioning {
         foregroundViewController.view.layoutIfNeeded()
         
         // Animate from the initial state to the final state.
-        UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: [], animations: {
-            // Set the final state of the transition.
-            self.configureViews(
-                for: secondTransitionState,
-                containerView: containerView,
-                backgroundViewController: backgroundViewController,
-                imageViewInBackground: backgroundImageView,
-                imageViewInForeground: foregroundImageView,
-                snapshotImageView: imageViewSnapshot)
-        }) { _ in
-            backgroundViewController.view.transform = CGAffineTransform.identity
-            imageViewSnapshot.removeFromSuperview()
-            backgroundImageView.isHidden = false
-            foregroundImageView.isHidden = false
-            foregroundViewController.view.backgroundColor = foregroundViewBackgroundColor
-            
-            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-        }
+        UIView.animate(
+            withDuration: duration, delay: 0,
+            usingSpringWithDamping: 1.0,
+            initialSpringVelocity: 0,
+            options: [],
+            animations: {
+                // Set the final state of the transition.
+                self.configureViews(
+                    for: secondTransitionState,
+                    containerView: containerView,
+                    backgroundViewController: backgroundViewController,
+                    imageViewInBackground: backgroundImageView,
+                    imageViewInForeground: foregroundImageView,
+                    snapshotImageView: imageViewSnapshot)
+            },
+            completion: { _ in
+                backgroundViewController.view.transform = CGAffineTransform.identity
+                imageViewSnapshot.removeFromSuperview()
+                backgroundImageView.isHidden = false
+                foregroundImageView.isHidden = false
+                foregroundViewController.view.backgroundColor = foregroundViewBackgroundColor
+
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            })
     }
 }

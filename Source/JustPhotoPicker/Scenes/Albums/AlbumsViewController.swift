@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-class AlbumsViewController: UIViewController {
+internal final class AlbumsViewController: UIViewController {
     // MARK: - Public properties
     public var fetchRecents: Bool = false
     
@@ -87,7 +87,12 @@ extension AlbumsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath) as! AlbumCell
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "AlbumCell",
+            for: indexPath) as? AlbumCell
+        else {
+            return UITableViewCell()
+        }
         
         let index = indexPath.row
         let album = albumsData[index]
@@ -99,7 +104,7 @@ extension AlbumsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? AlbumCell else { return }
         
-        let updateCellClosure: (UIImage?) -> () = { [unowned self] image in
+        let updateCellClosure: (UIImage?) -> Void = { [unowned self] image in
             cell.setAlbumThumbnail(image)
             self.loadingOperations.removeValue(forKey: indexPath)
         }
@@ -143,7 +148,7 @@ extension AlbumsViewController: UITableViewDataSourcePrefetching {
         // Initiate asynchronous loading of the assets for the cells
         // at the specified index paths.
         for indexPath in indexPaths {
-            if let _ = loadingOperations[indexPath] { return }
+            if loadingOperations[indexPath] != nil { return }
             
             if let model = albumsData[indexPath.item].assets.lastObject {
                 let size = CGSize(width: 100, height: 100)

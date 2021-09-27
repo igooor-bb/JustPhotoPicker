@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AlbumCell: UITableViewCell {
+internal final class AlbumCell: UITableViewCell {
     // MARK: - Interface properties
     private lazy var albumImage: UIImageView = {
         let albumImage = UIImageView()
@@ -62,7 +62,6 @@ class AlbumCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     // MARK: - Interface configuration
     private func setup() {

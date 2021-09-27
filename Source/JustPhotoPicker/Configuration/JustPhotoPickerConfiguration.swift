@@ -7,6 +7,7 @@
 
 import UIKit
 
+// swiftlint:disable:next identifier_name
 internal var JustConfig: JustPhotoPickerConfiguration { return JustPhotoPickerConfiguration.shared }
 
 public struct JustPhotoPickerConfiguration {

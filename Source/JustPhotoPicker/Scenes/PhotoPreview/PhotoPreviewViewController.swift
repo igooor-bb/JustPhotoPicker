@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-class PhotoPreviewViewController: UIViewController {
+internal final class PhotoPreviewViewController: UIViewController {
     // MARK: - Interface properties
     public lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -88,7 +88,6 @@ class PhotoPreviewViewController: UIViewController {
         setZoomScale()
     }
     
-    
     // MARK: - Interface configuration
     private func configureToolbar() {
         navigationController?.isToolbarHidden = false
@@ -117,7 +116,7 @@ class PhotoPreviewViewController: UIViewController {
                 imageView.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
                 imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 
-                imageView.widthAnchor.constraint(equalToConstant: imageInitialLandscapeWidth),
+                imageView.widthAnchor.constraint(equalToConstant: imageInitialLandscapeWidth)
             ]
         } else {
             imageInitialConstraints = [
@@ -181,7 +180,11 @@ class PhotoPreviewViewController: UIViewController {
             horizontalPadding = 0
         }
         
-        scrollView.contentInset = UIEdgeInsets(top: verticalPadding, left: horizontalPadding, bottom: verticalPadding, right: horizontalPadding)
+        scrollView.contentInset = UIEdgeInsets(
+            top: verticalPadding,
+            left: horizontalPadding,
+            bottom: verticalPadding,
+            right: horizontalPadding)
         NSLayoutConstraint.activate(imageSizeConstraints)
     }
     
@@ -240,8 +243,10 @@ extension PhotoPreviewViewController: UIScrollViewDelegate {
             (scrollViewSize.height - imageViewSize.height) / 2 : 0
         let horizontalPadding = imageViewSize.width < scrollViewSize.width ?
             (scrollViewSize.width - imageViewSize.width) / 2 : 0
-        scrollView.contentInset = UIEdgeInsets(top: verticalPadding, left: horizontalPadding, bottom: verticalPadding, right: horizontalPadding)
+        scrollView.contentInset = UIEdgeInsets(
+            top: verticalPadding,
+            left: horizontalPadding,
+            bottom: verticalPadding,
+            right: horizontalPadding)
     }
 }
-
-

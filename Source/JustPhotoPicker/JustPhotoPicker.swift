@@ -26,8 +26,8 @@ open class JustPhotoPicker: UINavigationController {
     
     // MARK: - Public properties
     /// The object that acts as the delegate of the photo picker.
-    public var photoPickerDelegate: JustPhotoPickerDelegate?
-    public var didFinishPicking: (([UIImage], Bool) -> ())?
+    public weak var photoPickerDelegate: JustPhotoPickerDelegate?
+    public var didFinishPicking: (([UIImage], Bool) -> Void)?
     
     // MARK: - Properties
     private let transition = ZoomTransitioningDelegate()
@@ -41,8 +41,8 @@ open class JustPhotoPicker: UINavigationController {
         configureNavigationBar()
         
         // Setup an observer to track changes in the number of selected photos.
-        let nc = NotificationCenter.default
-        nc.addObserver(
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(
             self,
             selector: #selector(updateToolbar),
             name: Notification.Name("SelectionChanged"),

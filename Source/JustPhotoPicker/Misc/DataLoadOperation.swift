@@ -8,19 +8,17 @@
 import UIKit
 import PhotosUI
 
-class DataLoadOperation: Operation {
+internal class DataLoadOperation: Operation {
     // MARK: - Public properties
     var image: UIImage?
-    var loadingCompleteHandler: ((UIImage?) -> ())?
+    var loadingCompleteHandler: ((UIImage?) -> Void)?
     
     // MARK: - Properties
     private var _asset: PHAsset
     private var _size: CGSize
     
     override var isAsynchronous: Bool {
-        get {
-            return true
-        }
+        return true
     }
     
     // MARK: - Methods
@@ -34,7 +32,7 @@ class DataLoadOperation: Operation {
         
         let manager = PhotoManager()
         manager.getThumbnail(for: _asset, size: _size) { image in
-            DispatchQueue.main.async() { [weak self] in
+            DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 if self.isCancelled { return }
                 self.image = image ?? UIImage()

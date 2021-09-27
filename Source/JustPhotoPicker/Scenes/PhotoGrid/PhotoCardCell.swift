@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-class PhotoCardCell: UICollectionViewCell {
+internal final class PhotoCardCell: UICollectionViewCell {
     // MARK: - Interface properties
     // UIImageView to display a thumbnail.
     private lazy var imageView: UIImageView = {
@@ -104,7 +104,7 @@ class PhotoCardCell: UICollectionViewCell {
             checkmarkImageView.centerXAnchor.constraint(equalTo: indicatorView.centerXAnchor),
             checkmarkImageView.centerYAnchor.constraint(equalTo: indicatorView.centerYAnchor),
             indicatorView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            indicatorView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            indicatorView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ]
         
         NSLayoutConstraint.activate(constraints)

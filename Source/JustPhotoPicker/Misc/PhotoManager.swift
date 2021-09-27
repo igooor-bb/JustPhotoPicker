@@ -8,8 +8,8 @@
 import UIKit
 import PhotosUI
 
-class PhotoManager: NSObject {
-    public func requestAuthorization(completion: @escaping (PHAuthorizationStatus) -> ()) {
+internal final class PhotoManager: NSObject {
+    public func requestAuthorization(completion: @escaping (PHAuthorizationStatus) -> Void) {
         PHPhotoLibrary.requestAuthorization(completion)
     }
     
@@ -49,7 +49,7 @@ class PhotoManager: NSObject {
         let allAlbums = [smartAlbums, userAlbums]
         var albums: [AlbumModel] = []
         for album in allAlbums {
-            album.enumerateObjects { [unowned self] (collection, index, stop) in
+            album.enumerateObjects { [unowned self] (collection, _, _) in
                 if let title = collection.localizedTitle {
                     let assets = getAssets(fromCollection: collection)
                     albums.append(.init(title: title, assets: assets))
@@ -79,7 +79,7 @@ class PhotoManager: NSObject {
     ///   - asset: Source asset.
     ///   - size: Size of the target image.
     ///   - completion: The closure that is executed when the request completes
-    public func getThumbnail(for asset: PHAsset, size: CGSize, completion: @escaping (UIImage?) -> ()) {
+    public func getThumbnail(for asset: PHAsset, size: CGSize, completion: @escaping (UIImage?) -> Void) {
         let options = PHImageRequestOptions()
         options.resizeMode = .none
         options.deliveryMode = .highQualityFormat
@@ -97,7 +97,7 @@ class PhotoManager: NSObject {
     ///   - asset: Source asset.
     ///   - size: Size of the target image.
     ///   - completion: The closure that is executed when the request completes
-    public func getImage(for asset: PHAsset, size: CGSize, completion: @escaping (UIImage?) -> ()) {
+    public func getImage(for asset: PHAsset, size: CGSize, completion: @escaping (UIImage?) -> Void) {
         let options = PHImageRequestOptions()
         options.deliveryMode = .highQualityFormat
         PHImageManager.default().requestImage(
