@@ -26,6 +26,7 @@
 		FB4E66B326FE13EF00F3BE03 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		FB4E66B426FE144200F3BE03 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		FB4E66B526FE145900F3BE03 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		FB6327D02716C8A000D3980C /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
 		FBA2464D26A1D93500CECE10 /* JustPhotoPickerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustPhotoPickerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBA2465026A1D93500CECE10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBA2465226A1D93500CECE10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +150,7 @@
 				it,
 				ro,
 				cs,
+				pl,
 			);
 			mainGroup = FBA2464426A1D93500CECE10;
 			productRefGroup = FBA2464E26A1D93500CECE10 /* Products */;
@@ -258,6 +260,7 @@
 				FB0552B12701CA350091DEB2 /* it */,
 				FB2699FC27021D510015DC2F /* ro */,
 				FBE30B9B271201BE00F19C83 /* cs */,
+				FB6327D02716C8A000D3980C /* pl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
