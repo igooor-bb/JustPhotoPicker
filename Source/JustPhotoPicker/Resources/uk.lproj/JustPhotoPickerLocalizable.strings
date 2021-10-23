@@ -1,0 +1,10 @@
+"JustPhotoPicker.Albums" = "Альбом";
+"JustPhotoPicker.FixedSelection" = "Виберіть %d фотографій";
+"JustPhotoPicker.Selection" = "Виберіть до %d фотографій";
+"JustPhotoPicker.SelectedLabel" = "%d вибраних";
+"JustPhotoPicker.EmptyAlbumLabel" = "Тут немає фотографій";
+"JustPhotoPicker.PermissionRequired" = "Потрібен дозвіл";
+"JustPhotoPicker.PermissionRequiredDescription" = "Змініть доступ до Фото в налаштуваннях конфіденційності";
+"JustPhotoPicker.Settings" = "Настройка";
+"JustPhotoPicker.Cancel" = "Відмінивши";
+"JustPhotoPicker.Done" = "Зроблено";
