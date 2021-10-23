@@ -35,6 +35,7 @@
 		FBA2465926A1D93B00CECE10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBA2465C26A1D93B00CECE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBA2465E26A1D93B00CECE10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBD5301F27246FBA00B3BAFE /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		FBE30B9B271201BE00F19C83 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +152,7 @@
 				ro,
 				cs,
 				pl,
+				uk,
 			);
 			mainGroup = FBA2464426A1D93500CECE10;
 			productRefGroup = FBA2464E26A1D93500CECE10 /* Products */;
@@ -261,6 +263,7 @@
 				FB2699FC27021D510015DC2F /* ro */,
 				FBE30B9B271201BE00F19C83 /* cs */,
 				FB6327D02716C8A000D3980C /* pl */,
+				FBD5301F27246FBA00B3BAFE /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
