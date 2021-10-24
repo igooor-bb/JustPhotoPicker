@@ -184,6 +184,9 @@ JustPhotoPicker is now translated into the following languages:
 -   Italian
 -   Spanish
 -   Romanian
+-   Czech
+-   Polish
+-   Ukrainian
 
 If you want to add or correct localization, you are welcome to [contribute](#contribution).
 
