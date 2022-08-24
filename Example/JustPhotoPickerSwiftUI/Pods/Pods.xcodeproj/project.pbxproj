@@ -1,0 +1,819 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0054290AEEA085CA48112CEC8FCA1522 /* es.lproj in Resources */ = {isa = PBXBuildFile; fileRef = A974FA8663E8B3601FE16CE42A148BE4 /* es.lproj */; };
+		0D5453FA7E718951534B9C2A0901648D /* JustPhotoPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 644BD56B5DE867E8F138464C75D7E9BC /* JustPhotoPicker-dummy.m */; };
+		0D796037E24999D3A57FB2DEDCA3FEEB /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770C65B8D873B5C7CAAA25949EAF0C16 /* PhotoManager.swift */; };
+		1D64ED60DBE4C6376033A07B7667E8B0 /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D346B7368EA9858590EC34096884FC13 /* PhotoPreviewViewController.swift */; };
+		2555BAA862DDFC682E997F61777DB391 /* DataLoadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DCD59F13122E3DC4D96A83697329E0 /* DataLoadOperation.swift */; };
+		3082F9F4DA28755A46317FD9CEF91548 /* UIWindow+Landscape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F972A2C272D97494E387285CE3ABC68 /* UIWindow+Landscape.swift */; };
+		3716059B67F5B93C455E8CB88B06F55E /* Pods-JustPhotoPickerSwiftUI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B7AE3EA782FF96A3B59B140CA682FEFD /* Pods-JustPhotoPickerSwiftUI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4055D1ED9444248A9C462188AC64C17D /* Pods-JustPhotoPickerSwiftUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C0618E0AB8C4F1F3A6B4062EC88C01E7 /* Pods-JustPhotoPickerSwiftUI-dummy.m */; };
+		44829847D2C25CBEF1CA09D41F5D2DC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		46DD9C657D270013DF59DE85CE4A0EFC /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13E20F8EFF3CB9B3D1B36BC1CD07DD /* UIView+CornerRadius.swift */; };
+		529C4C1A3A86F4F8BB79258DEDF2121A /* JustPhotoPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CC52374F79682B3B035C0FEFDFA86386 /* JustPhotoPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62576F21F35D28481BAB6AFC868AF152 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 36A9534494D2A49D6D09CB634D7FAA99 /* en.lproj */; };
+		634170E5F87F3DA6323FCE0EAD624809 /* Bundle+Local.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4109726D9520C497B32DC7126D2F2F /* Bundle+Local.swift */; };
+		6755B0EB2CA61F0520353864FA1300D9 /* ro.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 6750BA906A4CE3D6991EC39E846668FE /* ro.lproj */; };
+		6C0C67FF9AF5C5B54D7A328578A3D90E /* pl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 7AA5FB6E20AF727CCAB09530792AD79F /* pl.lproj */; };
+		74F68DD81C4E42A4DDFE595D5ABAA3C5 /* uk.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 384F52159CAC77329E0143F0DFDAD7D4 /* uk.lproj */; };
+		768E3CADA366C2F20D572C466B7343E9 /* fr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 64AE3BF64943B6297F68C4CB859E6A83 /* fr.lproj */; };
+		7DB8972D2268E280E807B1B93897F7DE /* UIScrollView+Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAF002A1ED9F5A646D0560D0E5F1A56 /* UIScrollView+Zoom.swift */; };
+		7DC02D29A5500962F37DE55A3CF31E7E /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1EC69BD20BA177B02CA7D525850D54 /* AlbumsViewController.swift */; };
+		7F5F6D4AF705D071CEB8179788B52E2A /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BEAE92F11EF8AEAC9C9FADA3A47D5F /* AlbumCell.swift */; };
+		82523149F60B70F1D5F383BD7D21FBEC /* JustPhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AE8EA2A90739AF7A108AB0DDE88B5D /* JustPhotoPickerView.swift */; };
+		86D73FA60C8A8BE47F8338ABCA5423A0 /* PhotoGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7654F998FA1B5EA7A805373EB41D68D8 /* PhotoGridViewController.swift */; };
+		9B69D2A2EE4A9E1CDE8DF9CADA4916C8 /* JustPhotoPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3AEF694689042C6BCEE5B45573E30C /* JustPhotoPickerDelegate.swift */; };
+		A2B2E3F84CE6D602773F92C91B2E1914 /* JustPhotoPickerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EFEB5DDDAE6985EF1C70C25731F46 /* JustPhotoPickerConfiguration.swift */; };
+		ADBA68A278C0E522B200B29155AB9E98 /* JustPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20683DEE776BA58563F7F9B38E2D2F79 /* JustPhotoPicker.swift */; };
+		B0305B7C6BC51D9D7BEF39EF1266A551 /* cs.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 150AEA8065380A7E1A1DF99A75917306 /* cs.lproj */; };
+		B33704567FA9822F9653E220C5F7D15E /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C3D99DB50DD691B48D702CE3B7438 /* AlbumModel.swift */; };
+		BB1E4F4F7BA621622DAF4289BE667DB6 /* JustPhotoPickerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30782CBB5B22DBC9501AF7B59CDB5AB1 /* JustPhotoPickerScene.swift */; };
+		C1A50CFB8C462D2E06A95E748FD41FA1 /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B8D08AE17DF65A8B2D5FCB1418A7F374 /* de.lproj */; };
+		C1DF9FE19A7BB443A24A2BF67F07CB5B /* ZoomTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5547F0C3C6FD427C3D354EC85A16EA0B /* ZoomTransitioningDelegate.swift */; };
+		CA63CDD60B00709AF73D7CA8EEE933B2 /* ru.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 526E770D4E05242205CBA097CF31E25A /* ru.lproj */; };
+		D7C8EF195AFFF68F972006B11041E16E /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB899F2BFBF76D5C2564DB395BA4B75 /* DataStorage.swift */; };
+		DC6CD23D90FCB941541C8B8DB8B6A5B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		E675218A79EB8AD17809C1DDCF270339 /* PhotoCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED77C08A77203BCB0F00291B3DC7D0F /* PhotoCardCell.swift */; };
+		E6FB1C03C3506DD1C453FE570660E002 /* it.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 99C716E75FB76BEA87ACD8495E8BC716 /* it.lproj */; };
+		FCB4B3002AC4A48E20101B7F0415D05F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3662116108948A667F1F6FEA3CCB42 /* Helpers.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EDF3224D8929A4936DCA20ACFF724DAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7343EEDC507ADE5FA22740648DABCD9;
+			remoteInfo = JustPhotoPicker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0766744C49FC6E14E45E49B9A57D6484 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		0A4109726D9520C497B32DC7126D2F2F /* Bundle+Local.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Bundle+Local.swift"; sourceTree = "<group>"; };
+		0A77A974ED6F10A9E4D9E6BB215068DC /* JustPhotoPicker.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = JustPhotoPicker.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		150AEA8065380A7E1A1DF99A75917306 /* cs.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = cs.lproj; path = Source/JustPhotoPicker/Resources/cs.lproj; sourceTree = "<group>"; };
+		20683DEE776BA58563F7F9B38E2D2F79 /* JustPhotoPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JustPhotoPicker.swift; path = Source/JustPhotoPicker/JustPhotoPicker.swift; sourceTree = "<group>"; };
+		2499859ABA32C92C286068AEE3A1C122 /* JustPhotoPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JustPhotoPicker.modulemap; sourceTree = "<group>"; };
+		24F6A65292F10A4D15DA2459B2F4DD6A /* Pods-JustPhotoPickerSwiftUI */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-JustPhotoPickerSwiftUI"; path = Pods_JustPhotoPickerSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		25074CA756DF564AB85108B799F697E7 /* JustPhotoPicker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JustPhotoPicker-Info.plist"; sourceTree = "<group>"; };
+		302B577BCCEA113A8AE2FA72959EE680 /* Pods-JustPhotoPickerSwiftUI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JustPhotoPickerSwiftUI.modulemap"; sourceTree = "<group>"; };
+		30782CBB5B22DBC9501AF7B59CDB5AB1 /* JustPhotoPickerScene.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JustPhotoPickerScene.swift; sourceTree = "<group>"; };
+		36A9534494D2A49D6D09CB634D7FAA99 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = Source/JustPhotoPicker/Resources/en.lproj; sourceTree = "<group>"; };
+		384F52159CAC77329E0143F0DFDAD7D4 /* uk.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = uk.lproj; path = Source/JustPhotoPicker/Resources/uk.lproj; sourceTree = "<group>"; };
+		3F972A2C272D97494E387285CE3ABC68 /* UIWindow+Landscape.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIWindow+Landscape.swift"; sourceTree = "<group>"; };
+		4EB899F2BFBF76D5C2564DB395BA4B75 /* DataStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		526E770D4E05242205CBA097CF31E25A /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ru.lproj; path = Source/JustPhotoPicker/Resources/ru.lproj; sourceTree = "<group>"; };
+		5547F0C3C6FD427C3D354EC85A16EA0B /* ZoomTransitioningDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ZoomTransitioningDelegate.swift; sourceTree = "<group>"; };
+		5A13E20F8EFF3CB9B3D1B36BC1CD07DD /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
+		644BD56B5DE867E8F138464C75D7E9BC /* JustPhotoPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JustPhotoPicker-dummy.m"; sourceTree = "<group>"; };
+		64AE3BF64943B6297F68C4CB859E6A83 /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fr.lproj; path = Source/JustPhotoPicker/Resources/fr.lproj; sourceTree = "<group>"; };
+		6750BA906A4CE3D6991EC39E846668FE /* ro.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ro.lproj; path = Source/JustPhotoPicker/Resources/ro.lproj; sourceTree = "<group>"; };
+		6BBF7DE1DA1DE8FAF893D54777EEC566 /* JustPhotoPicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JustPhotoPicker.debug.xcconfig; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		74421170C5A601BBEE2B88D39FEA5DAE /* Pods-JustPhotoPickerSwiftUI-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JustPhotoPickerSwiftUI-frameworks.sh"; sourceTree = "<group>"; };
+		757D6A1A39A64D9F3CA6D45DF1AD23AF /* Pods-JustPhotoPickerSwiftUI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JustPhotoPickerSwiftUI-Info.plist"; sourceTree = "<group>"; };
+		7654F998FA1B5EA7A805373EB41D68D8 /* PhotoGridViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoGridViewController.swift; sourceTree = "<group>"; };
+		770C65B8D873B5C7CAAA25949EAF0C16 /* PhotoManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
+		7AA5FB6E20AF727CCAB09530792AD79F /* pl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pl.lproj; path = Source/JustPhotoPicker/Resources/pl.lproj; sourceTree = "<group>"; };
+		89A5F2BC0CE82C176A8536F5DFCF3E8B /* JustPhotoPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JustPhotoPicker-prefix.pch"; sourceTree = "<group>"; };
+		8E3662116108948A667F1F6FEA3CCB42 /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		980C3D99DB50DD691B48D702CE3B7438 /* AlbumModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
+		99BEAE92F11EF8AEAC9C9FADA3A47D5F /* AlbumCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		99C716E75FB76BEA87ACD8495E8BC716 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = it.lproj; path = Source/JustPhotoPicker/Resources/it.lproj; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A5AE8EA2A90739AF7A108AB0DDE88B5D /* JustPhotoPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JustPhotoPickerView.swift; sourceTree = "<group>"; };
+		A974FA8663E8B3601FE16CE42A148BE4 /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = es.lproj; path = Source/JustPhotoPicker/Resources/es.lproj; sourceTree = "<group>"; };
+		B7AE3EA782FF96A3B59B140CA682FEFD /* Pods-JustPhotoPickerSwiftUI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JustPhotoPickerSwiftUI-umbrella.h"; sourceTree = "<group>"; };
+		B8D08AE17DF65A8B2D5FCB1418A7F374 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = de.lproj; path = Source/JustPhotoPicker/Resources/de.lproj; sourceTree = "<group>"; };
+		BABF0AA01D4DB3B251365E45288FB4D3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		BCFE7BF47DC2BC36F1EE645A48632605 /* JustPhotoPicker */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JustPhotoPicker; path = JustPhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1EC69BD20BA177B02CA7D525850D54 /* AlbumsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
+		C0618E0AB8C4F1F3A6B4062EC88C01E7 /* Pods-JustPhotoPickerSwiftUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JustPhotoPickerSwiftUI-dummy.m"; sourceTree = "<group>"; };
+		C2B008A3D9F683A17C17058A4B2ABAF4 /* Pods-JustPhotoPickerSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JustPhotoPickerSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		C8DCD59F13122E3DC4D96A83697329E0 /* DataLoadOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DataLoadOperation.swift; sourceTree = "<group>"; };
+		CC52374F79682B3B035C0FEFDFA86386 /* JustPhotoPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JustPhotoPicker-umbrella.h"; sourceTree = "<group>"; };
+		CED77C08A77203BCB0F00291B3DC7D0F /* PhotoCardCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoCardCell.swift; sourceTree = "<group>"; };
+		D09D37E96C85C1386F84053F4DA1234E /* Pods-JustPhotoPickerSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JustPhotoPickerSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		D0C5CEB5F7A04ED8D97F9478989DD72E /* Pods-JustPhotoPickerSwiftUI-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JustPhotoPickerSwiftUI-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D346B7368EA9858590EC34096884FC13 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
+		D92768C59A9595C37B75B80422B0D607 /* Pods-JustPhotoPickerSwiftUI-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JustPhotoPickerSwiftUI-acknowledgements.plist"; sourceTree = "<group>"; };
+		DD8EFEB5DDDAE6985EF1C70C25731F46 /* JustPhotoPickerConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JustPhotoPickerConfiguration.swift; sourceTree = "<group>"; };
+		DFAF002A1ED9F5A646D0560D0E5F1A56 /* UIScrollView+Zoom.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Zoom.swift"; sourceTree = "<group>"; };
+		EA3AEF694689042C6BCEE5B45573E30C /* JustPhotoPickerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JustPhotoPickerDelegate.swift; path = Source/JustPhotoPicker/JustPhotoPickerDelegate.swift; sourceTree = "<group>"; };
+		EFDF7A99FD6822B068F160CB80183A95 /* JustPhotoPicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JustPhotoPicker.release.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		13EFF73FDB53F880E85247A1E27F9C20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6CD23D90FCB941541C8B8DB8B6A5B6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C8D995BFB290DC64E071A6DBBCE9C01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44829847D2C25CBEF1CA09D41F5D2DC3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		112C67C89E37BB385D974CD10BB49353 /* Pods-JustPhotoPickerSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				302B577BCCEA113A8AE2FA72959EE680 /* Pods-JustPhotoPickerSwiftUI.modulemap */,
+				D0C5CEB5F7A04ED8D97F9478989DD72E /* Pods-JustPhotoPickerSwiftUI-acknowledgements.markdown */,
+				D92768C59A9595C37B75B80422B0D607 /* Pods-JustPhotoPickerSwiftUI-acknowledgements.plist */,
+				C0618E0AB8C4F1F3A6B4062EC88C01E7 /* Pods-JustPhotoPickerSwiftUI-dummy.m */,
+				74421170C5A601BBEE2B88D39FEA5DAE /* Pods-JustPhotoPickerSwiftUI-frameworks.sh */,
+				757D6A1A39A64D9F3CA6D45DF1AD23AF /* Pods-JustPhotoPickerSwiftUI-Info.plist */,
+				B7AE3EA782FF96A3B59B140CA682FEFD /* Pods-JustPhotoPickerSwiftUI-umbrella.h */,
+				C2B008A3D9F683A17C17058A4B2ABAF4 /* Pods-JustPhotoPickerSwiftUI.debug.xcconfig */,
+				D09D37E96C85C1386F84053F4DA1234E /* Pods-JustPhotoPickerSwiftUI.release.xcconfig */,
+			);
+			name = "Pods-JustPhotoPickerSwiftUI";
+			path = "Target Support Files/Pods-JustPhotoPickerSwiftUI";
+			sourceTree = "<group>";
+		};
+		138D58CBEFD05B155258EE0EC3882400 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DD8EFEB5DDDAE6985EF1C70C25731F46 /* JustPhotoPickerConfiguration.swift */,
+				30782CBB5B22DBC9501AF7B59CDB5AB1 /* JustPhotoPickerScene.swift */,
+			);
+			name = Configuration;
+			path = Source/JustPhotoPicker/Configuration;
+			sourceTree = "<group>";
+		};
+		1713D07434AA3A504A3CB2F1BA345AD3 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0B8296B5F4866271FA67320C3C57787 /* JustPhotoPicker */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		40DC6FA7F737DE790C95FB722AE7CCFE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCFE7BF47DC2BC36F1EE645A48632605 /* JustPhotoPicker */,
+				24F6A65292F10A4D15DA2459B2F4DD6A /* Pods-JustPhotoPickerSwiftUI */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		436F70DDA9DB7E8A84D2F8B533CF940E /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				A5AE8EA2A90739AF7A108AB0DDE88B5D /* JustPhotoPickerView.swift */,
+			);
+			name = SwiftUI;
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		599B26CEBD615A9A156F6FCF7307EEED /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				0A77A974ED6F10A9E4D9E6BB215068DC /* JustPhotoPicker.podspec */,
+				0766744C49FC6E14E45E49B9A57D6484 /* LICENSE */,
+				BABF0AA01D4DB3B251365E45288FB4D3 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		85EE50F1BF8CD4736A357B8697D6019E /* Albums */ = {
+			isa = PBXGroup;
+			children = (
+				99BEAE92F11EF8AEAC9C9FADA3A47D5F /* AlbumCell.swift */,
+				980C3D99DB50DD691B48D702CE3B7438 /* AlbumModel.swift */,
+				BD1EC69BD20BA177B02CA7D525850D54 /* AlbumsViewController.swift */,
+			);
+			name = Albums;
+			path = Albums;
+			sourceTree = "<group>";
+		};
+		87C3F5A475923095CB662DA30D5A7A06 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2499859ABA32C92C286068AEE3A1C122 /* JustPhotoPicker.modulemap */,
+				644BD56B5DE867E8F138464C75D7E9BC /* JustPhotoPicker-dummy.m */,
+				25074CA756DF564AB85108B799F697E7 /* JustPhotoPicker-Info.plist */,
+				89A5F2BC0CE82C176A8536F5DFCF3E8B /* JustPhotoPicker-prefix.pch */,
+				CC52374F79682B3B035C0FEFDFA86386 /* JustPhotoPicker-umbrella.h */,
+				6BBF7DE1DA1DE8FAF893D54777EEC566 /* JustPhotoPicker.debug.xcconfig */,
+				EFDF7A99FD6822B068F160CB80183A95 /* JustPhotoPicker.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/JustPhotoPickerSwiftUI/Pods/Target Support Files/JustPhotoPicker";
+			sourceTree = "<group>";
+		};
+		A0BA98E5BBBA70892F7099A2EAC07A9C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				85EE50F1BF8CD4736A357B8697D6019E /* Albums */,
+				B0952E05F00B8C06B328485847B7E47A /* PhotoGrid */,
+				E6BD2CBE609239E2A207A330D7430816 /* PhotoPreview */,
+			);
+			name = Scenes;
+			path = Source/JustPhotoPicker/Scenes;
+			sourceTree = "<group>";
+		};
+		B0952E05F00B8C06B328485847B7E47A /* PhotoGrid */ = {
+			isa = PBXGroup;
+			children = (
+				CED77C08A77203BCB0F00291B3DC7D0F /* PhotoCardCell.swift */,
+				7654F998FA1B5EA7A805373EB41D68D8 /* PhotoGridViewController.swift */,
+			);
+			name = PhotoGrid;
+			path = PhotoGrid;
+			sourceTree = "<group>";
+		};
+		BBF9E50BAF98894ACEC029B0D1F44C91 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0A4109726D9520C497B32DC7126D2F2F /* Bundle+Local.swift */,
+				DFAF002A1ED9F5A646D0560D0E5F1A56 /* UIScrollView+Zoom.swift */,
+				5A13E20F8EFF3CB9B3D1B36BC1CD07DD /* UIView+CornerRadius.swift */,
+				3F972A2C272D97494E387285CE3ABC68 /* UIWindow+Landscape.swift */,
+			);
+			name = Extensions;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				1713D07434AA3A504A3CB2F1BA345AD3 /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				40DC6FA7F737DE790C95FB722AE7CCFE /* Products */,
+				DFB1A437ABC0BA8BBCCAA699D24DEE26 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D0B8296B5F4866271FA67320C3C57787 /* JustPhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				150AEA8065380A7E1A1DF99A75917306 /* cs.lproj */,
+				B8D08AE17DF65A8B2D5FCB1418A7F374 /* de.lproj */,
+				36A9534494D2A49D6D09CB634D7FAA99 /* en.lproj */,
+				A974FA8663E8B3601FE16CE42A148BE4 /* es.lproj */,
+				64AE3BF64943B6297F68C4CB859E6A83 /* fr.lproj */,
+				99C716E75FB76BEA87ACD8495E8BC716 /* it.lproj */,
+				20683DEE776BA58563F7F9B38E2D2F79 /* JustPhotoPicker.swift */,
+				EA3AEF694689042C6BCEE5B45573E30C /* JustPhotoPickerDelegate.swift */,
+				7AA5FB6E20AF727CCAB09530792AD79F /* pl.lproj */,
+				6750BA906A4CE3D6991EC39E846668FE /* ro.lproj */,
+				526E770D4E05242205CBA097CF31E25A /* ru.lproj */,
+				384F52159CAC77329E0143F0DFDAD7D4 /* uk.lproj */,
+				138D58CBEFD05B155258EE0EC3882400 /* Configuration */,
+				F4F3682FBE91B532614A90A51B90CADA /* Misc */,
+				599B26CEBD615A9A156F6FCF7307EEED /* Pod */,
+				A0BA98E5BBBA70892F7099A2EAC07A9C /* Scenes */,
+				87C3F5A475923095CB662DA30D5A7A06 /* Support Files */,
+			);
+			name = JustPhotoPicker;
+			path = ../../..;
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DFB1A437ABC0BA8BBCCAA699D24DEE26 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				112C67C89E37BB385D974CD10BB49353 /* Pods-JustPhotoPickerSwiftUI */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E6BD2CBE609239E2A207A330D7430816 /* PhotoPreview */ = {
+			isa = PBXGroup;
+			children = (
+				D346B7368EA9858590EC34096884FC13 /* PhotoPreviewViewController.swift */,
+			);
+			name = PhotoPreview;
+			path = PhotoPreview;
+			sourceTree = "<group>";
+		};
+		F4F3682FBE91B532614A90A51B90CADA /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				C8DCD59F13122E3DC4D96A83697329E0 /* DataLoadOperation.swift */,
+				4EB899F2BFBF76D5C2564DB395BA4B75 /* DataStorage.swift */,
+				8E3662116108948A667F1F6FEA3CCB42 /* Helpers.swift */,
+				770C65B8D873B5C7CAAA25949EAF0C16 /* PhotoManager.swift */,
+				5547F0C3C6FD427C3D354EC85A16EA0B /* ZoomTransitioningDelegate.swift */,
+				BBF9E50BAF98894ACEC029B0D1F44C91 /* Extensions */,
+				436F70DDA9DB7E8A84D2F8B533CF940E /* SwiftUI */,
+			);
+			name = Misc;
+			path = Source/JustPhotoPicker/Misc;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E01C6AF932904A626593EC773A468FAC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				529C4C1A3A86F4F8BB79258DEDF2121A /* JustPhotoPicker-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F025DA8542DB8BE4F616565AB34D13F2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3716059B67F5B93C455E8CB88B06F55E /* Pods-JustPhotoPickerSwiftUI-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A10CEE61062EC37A429C9EF2088585B9 /* Pods-JustPhotoPickerSwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42547E04CC9F47C5168E4481A7725B49 /* Build configuration list for PBXNativeTarget "Pods-JustPhotoPickerSwiftUI" */;
+			buildPhases = (
+				F025DA8542DB8BE4F616565AB34D13F2 /* Headers */,
+				6D090468532E026E6FFAC99F292B502F /* Sources */,
+				13EFF73FDB53F880E85247A1E27F9C20 /* Frameworks */,
+				9D53D16D19FA2DE954DED320089ABD3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B19E7EF908E9F08BDD0A6519CA588C62 /* PBXTargetDependency */,
+			);
+			name = "Pods-JustPhotoPickerSwiftUI";
+			productName = Pods_JustPhotoPickerSwiftUI;
+			productReference = 24F6A65292F10A4D15DA2459B2F4DD6A /* Pods-JustPhotoPickerSwiftUI */;
+			productType = "com.apple.product-type.framework";
+		};
+		C7343EEDC507ADE5FA22740648DABCD9 /* JustPhotoPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 894EA34C0EB1517469B120D1AAC17F3A /* Build configuration list for PBXNativeTarget "JustPhotoPicker" */;
+			buildPhases = (
+				E01C6AF932904A626593EC773A468FAC /* Headers */,
+				C1AF4AA9AC194B66B1CB1650D8A767A6 /* Sources */,
+				6C8D995BFB290DC64E071A6DBBCE9C01 /* Frameworks */,
+				0E602B3CBD1D9F76084DF04E073E887D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JustPhotoPicker;
+			productName = JustPhotoPicker;
+			productReference = BCFE7BF47DC2BC36F1EE645A48632605 /* JustPhotoPicker */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				cs,
+				de,
+				en,
+				es,
+				fr,
+				it,
+				pl,
+				ro,
+				ru,
+				uk,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 40DC6FA7F737DE790C95FB722AE7CCFE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7343EEDC507ADE5FA22740648DABCD9 /* JustPhotoPicker */,
+				A10CEE61062EC37A429C9EF2088585B9 /* Pods-JustPhotoPickerSwiftUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0E602B3CBD1D9F76084DF04E073E887D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0305B7C6BC51D9D7BEF39EF1266A551 /* cs.lproj in Resources */,
+				C1A50CFB8C462D2E06A95E748FD41FA1 /* de.lproj in Resources */,
+				62576F21F35D28481BAB6AFC868AF152 /* en.lproj in Resources */,
+				0054290AEEA085CA48112CEC8FCA1522 /* es.lproj in Resources */,
+				768E3CADA366C2F20D572C466B7343E9 /* fr.lproj in Resources */,
+				E6FB1C03C3506DD1C453FE570660E002 /* it.lproj in Resources */,
+				6C0C67FF9AF5C5B54D7A328578A3D90E /* pl.lproj in Resources */,
+				6755B0EB2CA61F0520353864FA1300D9 /* ro.lproj in Resources */,
+				CA63CDD60B00709AF73D7CA8EEE933B2 /* ru.lproj in Resources */,
+				74F68DD81C4E42A4DDFE595D5ABAA3C5 /* uk.lproj in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D53D16D19FA2DE954DED320089ABD3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6D090468532E026E6FFAC99F292B502F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4055D1ED9444248A9C462188AC64C17D /* Pods-JustPhotoPickerSwiftUI-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1AF4AA9AC194B66B1CB1650D8A767A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F5F6D4AF705D071CEB8179788B52E2A /* AlbumCell.swift in Sources */,
+				B33704567FA9822F9653E220C5F7D15E /* AlbumModel.swift in Sources */,
+				7DC02D29A5500962F37DE55A3CF31E7E /* AlbumsViewController.swift in Sources */,
+				634170E5F87F3DA6323FCE0EAD624809 /* Bundle+Local.swift in Sources */,
+				2555BAA862DDFC682E997F61777DB391 /* DataLoadOperation.swift in Sources */,
+				D7C8EF195AFFF68F972006B11041E16E /* DataStorage.swift in Sources */,
+				FCB4B3002AC4A48E20101B7F0415D05F /* Helpers.swift in Sources */,
+				ADBA68A278C0E522B200B29155AB9E98 /* JustPhotoPicker.swift in Sources */,
+				0D5453FA7E718951534B9C2A0901648D /* JustPhotoPicker-dummy.m in Sources */,
+				A2B2E3F84CE6D602773F92C91B2E1914 /* JustPhotoPickerConfiguration.swift in Sources */,
+				9B69D2A2EE4A9E1CDE8DF9CADA4916C8 /* JustPhotoPickerDelegate.swift in Sources */,
+				BB1E4F4F7BA621622DAF4289BE667DB6 /* JustPhotoPickerScene.swift in Sources */,
+				82523149F60B70F1D5F383BD7D21FBEC /* JustPhotoPickerView.swift in Sources */,
+				E675218A79EB8AD17809C1DDCF270339 /* PhotoCardCell.swift in Sources */,
+				86D73FA60C8A8BE47F8338ABCA5423A0 /* PhotoGridViewController.swift in Sources */,
+				0D796037E24999D3A57FB2DEDCA3FEEB /* PhotoManager.swift in Sources */,
+				1D64ED60DBE4C6376033A07B7667E8B0 /* PhotoPreviewViewController.swift in Sources */,
+				7DB8972D2268E280E807B1B93897F7DE /* UIScrollView+Zoom.swift in Sources */,
+				46DD9C657D270013DF59DE85CE4A0EFC /* UIView+CornerRadius.swift in Sources */,
+				3082F9F4DA28755A46317FD9CEF91548 /* UIWindow+Landscape.swift in Sources */,
+				C1DF9FE19A7BB443A24A2BF67F07CB5B /* ZoomTransitioningDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B19E7EF908E9F08BDD0A6519CA588C62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JustPhotoPicker;
+			target = C7343EEDC507ADE5FA22740648DABCD9 /* JustPhotoPicker */;
+			targetProxy = EDF3224D8929A4936DCA20ACFF724DAA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		046885EBD974A5BAD69275DD4FEAE7C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFDF7A99FD6822B068F160CB80183A95 /* JustPhotoPicker.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JustPhotoPicker/JustPhotoPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JustPhotoPicker/JustPhotoPicker-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JustPhotoPicker/JustPhotoPicker.modulemap";
+				PRODUCT_MODULE_NAME = JustPhotoPicker;
+				PRODUCT_NAME = JustPhotoPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1A4AE207D2039953A28F697022672349 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BBF7DE1DA1DE8FAF893D54777EEC566 /* JustPhotoPicker.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JustPhotoPicker/JustPhotoPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JustPhotoPicker/JustPhotoPicker-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JustPhotoPicker/JustPhotoPicker.modulemap";
+				PRODUCT_MODULE_NAME = JustPhotoPicker;
+				PRODUCT_NAME = JustPhotoPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		40CAD1D9AA910EAB5BE4338759DEC4D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D09D37E96C85C1386F84053F4DA1234E /* Pods-JustPhotoPickerSwiftUI.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JustPhotoPickerSwiftUI/Pods-JustPhotoPickerSwiftUI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JustPhotoPickerSwiftUI/Pods-JustPhotoPickerSwiftUI.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4BC7450F9457737EE3E637BA155B56F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		78A068A4FD56B9D130D726585DAD2527 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2B008A3D9F683A17C17058A4B2ABAF4 /* Pods-JustPhotoPickerSwiftUI.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JustPhotoPickerSwiftUI/Pods-JustPhotoPickerSwiftUI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JustPhotoPickerSwiftUI/Pods-JustPhotoPickerSwiftUI.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8B5A46FF8D3C1289CDEE3BAFACABCD2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		42547E04CC9F47C5168E4481A7725B49 /* Build configuration list for PBXNativeTarget "Pods-JustPhotoPickerSwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78A068A4FD56B9D130D726585DAD2527 /* Debug */,
+				40CAD1D9AA910EAB5BE4338759DEC4D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BC7450F9457737EE3E637BA155B56F7 /* Debug */,
+				8B5A46FF8D3C1289CDEE3BAFACABCD2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		894EA34C0EB1517469B120D1AAC17F3A /* Build configuration list for PBXNativeTarget "JustPhotoPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A4AE207D2039953A28F697022672349 /* Debug */,
+				046885EBD974A5BAD69275DD4FEAE7C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

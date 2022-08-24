@@ -1,0 +1,16 @@
+PODS:
+  - JustPhotoPicker (1.2.1)
+
+DEPENDENCIES:
+  - JustPhotoPicker (from `../../`)
+
+EXTERNAL SOURCES:
+  JustPhotoPicker:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  JustPhotoPicker: f7e12671144d68df89d8e770c2fdd0f567155895
+
+PODFILE CHECKSUM: 037ddc43db1bf7ab98d79dc1e8d79cd6b2a3489d
+
+COCOAPODS: 1.11.3
