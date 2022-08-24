@@ -1,5 +1,5 @@
 PODS:
-  - JustPhotoPicker (1.2.1)
+  - JustPhotoPicker (1.3.0)
 
 DEPENDENCIES:
   - JustPhotoPicker (from `../../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  JustPhotoPicker: f7e12671144d68df89d8e770c2fdd0f567155895
+  JustPhotoPicker: 5b4a1fb0654a7f779bc4857d0cbe80221d79d07c
 
 PODFILE CHECKSUM: 4433f256dea2205fc73a1d0bd021ec5f4f480c0d
 
