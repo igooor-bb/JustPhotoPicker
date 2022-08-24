@@ -174,6 +174,7 @@ VStack {
 }
 ```
 
+Learn more [here](Example/JustPhotoPickerSwiftUI/JustPhotoPickerSwiftUI/ContentView.swift)
 
 ## Configuration properties
 
