@@ -23,12 +23,13 @@ Source of sample images in the gallery: [The Verge](https://www.theverge.com/pag
         -   [Using CocoaPods](#using-cocoapods)
         -   [Using Swift Package Manager](#using-swift-package-manager)
     -   [Info.plist](#infoplist)
-    -   [Usage](#usage)
+    -   [Usage in UIKit](#usage-in-uikit)
         -   [Configuration](#configuration)
         -   [Processing the result](#processing-the-result)
             -   [Using the delegate](#using-the-delegate)
             -   [Using the closure](#using-the-closure)
         -   [Display](#display)
+    -   [Usage in SwiftUI](#usage-in-swiftui)
     -   [Configuration properties](#configuration-properties)
     -   [Localization](#localization)
     -   [Contribution](#contribution)
@@ -80,7 +81,7 @@ To make your application have access to photos, add the following entity to the 
 <string>Some description</string>
 ```
 
-## Usage
+## Usage in UIKit
 
 First of all, import the module `JustPhotoPicker` into a file with your view controller:
 
@@ -152,9 +153,31 @@ When you are ready to start picking photos, display the picker in the standard w
 present(photoPicker, animated: true)
 ```
 
+## Usage in SwiftUI
+
+Recently we added SwiftUI support for JustPhotoPicker. All you need to do is to call `JustPhotoPickerView` in the same way in the body of your SwiftUI:
+
+```swift
+VStack {
+  Button("Select photo") {
+    showingPicker = true
+  }
+}
+.sheet(isPresented: $showingPicker) {
+  JustPhotoPickerView(configuration: pickerConfig)
+    .onFinish { images in
+      print("Selected \(images.count) images")
+    }
+    .onCancel {
+      print("Did not select any images")
+    }
+}
+```
+
+
 ## Configuration properties
 
-The following are some of the possible settings for the picker, which you can also find in the `JustPhotoPickerConfiguration`structure:
+The following are some of the possible settings for the picker, which you can also find in the `JustPhotoPickerConfiguration` structure:
 
 ```swift
 config.selectionLimit = 2
