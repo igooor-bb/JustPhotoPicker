@@ -5,6 +5,7 @@
 //  Created by Igor Belov on 11.07.2021.
 //
 
+import Photos
 import UIKit
 
 public final class JustPhotoPicker: UINavigationController {
@@ -32,33 +33,29 @@ public final class JustPhotoPicker: UINavigationController {
     
     // MARK: - Properties
     private let configuration: JustPhotoPickerConfiguration
+    private let selectionStore: SelectionStore<PHAsset>
     private let transition = ZoomTransitioningDelegate()
     
     // MARK: - Methods
     public override func viewDidLoad() {
         super.viewDidLoad()
         delegate = transition
+        selectionStore.onChange = { [weak self] snapshot in
+            self?.updateToolbar(with: snapshot)
+        }
         
         configureToolbar()
         configureNavigationBar()
         
-        // Setup an observer to track changes in the number of selected photos.
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(
-            self,
-            selector: #selector(updateToolbar),
-            name: .selectionChanged,
-            object: nil)
-        
         // Initialize the first scene to display.
-        let albumsList = AlbumsViewController(configuration: configuration)
+        let albumsList = AlbumsViewController(configuration: configuration, selectionStore: selectionStore)
         albumsList.fetchRecents = true
         viewControllers = [albumsList]
     }
     
     public init(configuration: JustPhotoPickerConfiguration) {
         self.configuration = configuration
-        DataStorage.shared.removeAll()
+        selectionStore = SelectionStore(configuration: configuration)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -91,55 +88,46 @@ public final class JustPhotoPicker: UINavigationController {
             doneButton
         ]
         toolbarItems = items
-        updateToolbar()
+        updateToolbar(with: selectionStore.snapshot)
     }
     
     // MARK: - Toolbar methods
-    @objc func updateToolbar() {
-        updateToolbarLabel()
-        checkDoneButtonCondition()
+    private func updateToolbar(with snapshot: SelectionStoreSnapshot<PHAsset>) {
+        updateToolbarLabel(count: snapshot.count)
+        checkDoneButtonCondition(canCompleteSelection: snapshot.canCompleteSelection)
     }
     
-    private func updateToolbarLabel() {
-        let count = DataStorage.shared.count
-        
+    private func updateToolbarLabel(count: Int) {
         let localizedString = localizedString(LocalizationKey.selectedCount)
         let text = String(format: localizedString, count)
         descriptionLabel.title = text
     }
     
-    private func checkDoneButtonCondition() {
+    private func checkDoneButtonCondition(canCompleteSelection: Bool) {
         // Enable the done button only if it is satisfies requirements
         // set by configuration.
-        let isSelectionRequired = configuration.isSelectionRequired
-        let selectionLimit = configuration.selectionLimit
-        
-        var isEnabled: Bool
-        if isSelectionRequired {
-            isEnabled = DataStorage.shared.count == selectionLimit
-        } else {
-            isEnabled = DataStorage.shared.count > 0
-        }
-        doneButton.isEnabled = isEnabled
+        doneButton.isEnabled = canCompleteSelection
     }
     
     // MARK: - Actions
     @objc private func cancelAction() {
-        DataStorage.shared.removeAll()
+        selectionStore.removeAll()
         photoPickerDelegate?.didNotSelect(with: self)
         didFinishPicking?([], true)
         dismiss(animated: true, completion: nil)
     }
     
     @objc private func doneAction() {
-        guard DataStorage.shared.count > 0 else {
-            cancelAction()
+        guard selectionStore.canCompleteSelection else {
+            if selectionStore.count == 0 {
+                cancelAction()
+            }
             return
         }
         
         DispatchQueue.main.async { [unowned self] in
-            let assets = DataStorage.shared.assets
-            DataStorage.shared.removeAll()
+            let assets = selectionStore.items
+            selectionStore.removeAll()
             
             let manager = PhotoManager()
             let images: [UIImage] = manager.originalImages(for: assets)

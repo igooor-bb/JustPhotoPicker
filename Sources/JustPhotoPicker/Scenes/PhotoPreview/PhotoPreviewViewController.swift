@@ -41,6 +41,7 @@ final class PhotoPreviewViewController: UIViewController {
 
     // MARK: - Properties
     private let configuration: JustPhotoPickerConfiguration
+    private let selectionStore: SelectionStore<PHAsset>
     var asset: PHAsset!
     var image: UIImage!
     var imageInitialPortraitHeight: CGFloat!
@@ -50,8 +51,9 @@ final class PhotoPreviewViewController: UIViewController {
     private var imageInitialConstraints: [NSLayoutConstraint] = []
 
     // MARK: - Default methods
-    init(configuration: JustPhotoPickerConfiguration) {
+    init(configuration: JustPhotoPickerConfiguration, selectionStore: SelectionStore<PHAsset>) {
         self.configuration = configuration
+        self.selectionStore = selectionStore
         super.init(nibName: nil, bundle: nil)
     }
 

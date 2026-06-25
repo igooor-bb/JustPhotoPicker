@@ -11,6 +11,7 @@ import PhotosUI
 final class PhotoGridViewController: UIViewController {
     // MARK: - Properties
     private let configuration: JustPhotoPickerConfiguration
+    private let selectionStore: SelectionStore<PHAsset>
 
     /// Album model item to display in grid.
     var albumModel: AlbumModel?
@@ -80,8 +81,9 @@ final class PhotoGridViewController: UIViewController {
     }()
 
     // MARK: - Methods
-    init(configuration: JustPhotoPickerConfiguration) {
+    init(configuration: JustPhotoPickerConfiguration, selectionStore: SelectionStore<PHAsset>) {
         self.configuration = configuration
+        self.selectionStore = selectionStore
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -280,7 +282,7 @@ final class PhotoGridViewController: UIViewController {
             // and adjusting the size of UIImageView for the transition.
             guard let image = image else { return }
 
-            let details = PhotoPreviewViewController(configuration: configuration)
+            let details = PhotoPreviewViewController(configuration: configuration, selectionStore: selectionStore)
             details.image = image
             // The asset is additionally needed for the subsequent
             // download of a high-quality image.
@@ -358,7 +360,7 @@ extension PhotoGridViewController: UICollectionViewDataSource {
         }
         let index = indexPath.item
         let asset = imagesData[index]
-        cell.configure(configuration: configuration, isSelected: DataStorage.shared.contains(asset))
+        cell.configure(configuration: configuration, isSelected: selectionStore.contains(asset))
         return cell
     }
 }
@@ -401,37 +403,17 @@ extension PhotoGridViewController: UICollectionViewDelegateFlowLayout {
         let index = indexPath.item
         let asset = imagesData[index]
 
-        let selectionLimit = configuration.selectionLimit
-        if selectionLimit == 1 {
-            // If a user can select only one image.
-            guard !DataStorage.shared.contains(asset) else {
-                // Remove selection if the cell has already been selected.
-                DataStorage.shared.remove(asset)
-                collectionView.reloadItems(at: [indexPath])
-                return
-            }
-            // Otherwise, undo the previous selection and select a new cell.
-            if let oldAsset = DataStorage.shared.popFirstAsset() {
-                let oldIndex = imagesData.index(of: oldAsset)
-                let oldIndexPath = IndexPath(item: oldIndex, section: 0)
-                DataStorage.shared.insert(asset)
-                collectionView.reloadItems(at: [oldIndexPath, indexPath])
-            } else {
-                DataStorage.shared.insert(asset)
-                collectionView.reloadItems(at: [indexPath])
-            }
-        } else {
-            // If a user can select several images.
-            if DataStorage.shared.contains(asset) {
-                // Remove selection if the cell has already been selected.
-                DataStorage.shared.remove(asset)
-            } else {
-                // Otherwise, select a new cell.
-                guard DataStorage.shared.count < selectionLimit else { return }
-                DataStorage.shared.insert(asset)
-            }
-            collectionView.reloadItems(at: [indexPath])
+        let change = selectionStore.toggle(asset)
+        let indexPaths = change.changedItems.compactMap { self.indexPath(for: $0) }
+        if !indexPaths.isEmpty {
+            collectionView.reloadItems(at: indexPaths)
         }
+    }
+
+    private func indexPath(for asset: PHAsset) -> IndexPath? {
+        let index = imagesData.index(of: asset)
+        guard index != NSNotFound else { return nil }
+        return IndexPath(item: index, section: 0)
     }
 }
 

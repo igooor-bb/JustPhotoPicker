@@ -11,6 +11,7 @@ import PhotosUI
 final class AlbumsViewController: UIViewController {
     // MARK: - Properties
     private let configuration: JustPhotoPickerConfiguration
+    private let selectionStore: SelectionStore<PHAsset>
     var fetchRecents: Bool = false
 
     // MARK: - Interface properties
@@ -33,8 +34,9 @@ final class AlbumsViewController: UIViewController {
     private var loadingOperations: [IndexPath: DataLoadOperation] = [:]
 
     // MARK: - Methods
-    init(configuration: JustPhotoPickerConfiguration) {
+    init(configuration: JustPhotoPickerConfiguration, selectionStore: SelectionStore<PHAsset>) {
         self.configuration = configuration
+        self.selectionStore = selectionStore
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -50,7 +52,7 @@ final class AlbumsViewController: UIViewController {
         // so redirect there to correctly display the back button.
         if fetchRecents && configuration.startsOnScene == .photos {
             fetchRecents = false
-            let grid = PhotoGridViewController(configuration: configuration)
+            let grid = PhotoGridViewController(configuration: configuration, selectionStore: selectionStore)
             grid.fetchRecents = true
             navigationController?.pushViewController(grid, animated: false)
         }
@@ -182,7 +184,7 @@ extension AlbumsViewController: UITableViewDataSourcePrefetching {
 extension AlbumsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let photoGrid = PhotoGridViewController(configuration: configuration)
+        let photoGrid = PhotoGridViewController(configuration: configuration, selectionStore: selectionStore)
         photoGrid.albumModel = albumsData[indexPath.row]
         navigationController?.pushViewController(photoGrid, animated: true)
     }

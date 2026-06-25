@@ -17,7 +17,3 @@ enum LocalizationKey: String {
     case selection = "JustPhotoPicker.Selection"
     case settings = "JustPhotoPicker.Settings"
 }
-
-extension Notification.Name {
-    static let selectionChanged = Notification.Name("JustPhotoPicker.selectionChanged")
-}
