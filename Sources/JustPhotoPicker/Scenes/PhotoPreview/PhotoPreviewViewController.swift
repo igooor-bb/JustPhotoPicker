@@ -30,7 +30,7 @@ final class PhotoPreviewViewController: UIViewController {
             scrollView.delegate = self
             let doubleTap = UITapGestureRecognizer(
                 target: self,
-                action: #selector(scrollViewDoubleTapped(_:)))
+                action: #selector(handleScrollViewDoubleTap(_:)))
             doubleTap.numberOfTapsRequired = 2
             scrollView.addGestureRecognizer(doubleTap)
             scrollView.maximumZoomScale = 5.0
@@ -45,7 +45,6 @@ final class PhotoPreviewViewController: UIViewController {
     var imageInitialPortraitHeight: CGFloat!
     var imageInitialLandscapeWidth: CGFloat!
     
-    // MARK: - Properties
     private var imageSizeConstraints: [NSLayoutConstraint] = []
     private var imageInitialConstraints: [NSLayoutConstraint] = []
     
@@ -55,17 +54,17 @@ final class PhotoPreviewViewController: UIViewController {
         configureToolbar()
         
         // The separation of the interface configuration into initial and final is required
-        // because the imageview cannot be centered inside scrollview before the main view appears.
-        // Therefore, initially the imageview is centered inside the main view to
+        // because the image view cannot be centered inside scroll view before the main view appears.
+        // Therefore, initially the image view is centered inside the main view to
         // correctly complete with transition.
-        configureScrollview()
-        setInitialImageConfiguration()
-        fetchImage()
+        configureScrollView()
+        applyInitialImageConfiguration()
+        loadImage()
         
         // Add observer to update constraints right after device rotation occurs.
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(rotationOccured),
+            selector: #selector(rotationOccurred),
             name: UIDevice.orientationDidChangeNotification,
             object: nil)
     
@@ -82,10 +81,10 @@ final class PhotoPreviewViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // When the view appears apply final interface configuration to center the imageview
-        // inside the scrollview.
-        finalImageConfiguration()
-        setZoomScale()
+        // When the view appears, apply final interface configuration to center the image view
+        // inside the scroll view.
+        applyFinalImageConfiguration()
+        resetZoomScale()
     }
     
     // MARK: - Interface configuration
@@ -94,7 +93,7 @@ final class PhotoPreviewViewController: UIViewController {
         toolbarItems = navigationController?.toolbarItems
     }
     
-    private func configureScrollview() {
+    private func configureScrollView() {
         view.addSubview(scrollView)
         let guide = view.safeAreaLayoutGuide
         
@@ -106,7 +105,7 @@ final class PhotoPreviewViewController: UIViewController {
         ])
     }
     
-    private func setInitialImageConfiguration() {
+    private func applyInitialImageConfiguration() {
         view.addSubview(imageView)
         
         let guide = view.safeAreaLayoutGuide
@@ -131,13 +130,13 @@ final class PhotoPreviewViewController: UIViewController {
         NSLayoutConstraint.activate(imageInitialConstraints)
     }
     
-    private func finalImageConfiguration() {
+    private func applyFinalImageConfiguration() {
         NSLayoutConstraint.deactivate(imageInitialConstraints)
         
         imageView.removeFromSuperview()
         scrollView.addSubview(imageView)
         
-        // Check exitance of an image in case the high quality
+        // Check existence of an image in case the high-quality
         // version has already been fetched.
         if imageView.image == nil {
             imageView.image = image
@@ -189,20 +188,20 @@ final class PhotoPreviewViewController: UIViewController {
     }
     
     // MARK: - Data configuration
-    private func fetchImage() {
+    private func loadImage() {
         let manager = PhotoManager()
-        manager.getImage(for: asset, size: imageView.frame.size) { [weak self] image in
+        manager.requestImage(for: asset, size: imageView.frame.size) { [weak self] image in
             guard let image = image else { return }
             self?.imageView.image = image
         }
     }
     
     // MARK: - Actions
-    @objc func rotationOccured() {
+    @objc private func rotationOccurred() {
         updateSizeConstraints()
     }
     
-    @objc func scrollViewDoubleTapped(_ sender: UIGestureRecognizer) {
+    @objc private func handleScrollViewDoubleTap(_ sender: UIGestureRecognizer) {
         if scrollView.zoomScale >= scrollView.maximumZoomScale / 2.0 {
             scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
         } else {
@@ -226,7 +225,7 @@ extension PhotoPreviewViewController: UIScrollViewDelegate {
         return imageView
     }
     
-    func setZoomScale() {
+    func resetZoomScale() {
         let imageViewSize = imageView.bounds.size
         let scrollViewSize = scrollView.bounds.size
         let widthScale = scrollViewSize.width / imageViewSize.width

@@ -69,7 +69,7 @@ final class PhotoCardCell: UICollectionViewCell {
         overlay.isHidden = true
     }
     
-    // MARK: - Inerface configuration
+    // MARK: - Interface configuration
     private func configureContentView() {
         contentView.cornerRadius = JustConfig.photoCardCornerRadius
     }
@@ -112,9 +112,9 @@ final class PhotoCardCell: UICollectionViewCell {
     
     // MARK: - Data configuration
     
-    /// Set a thumbnail of the cell with a given image.
+    /// Updates cell thumbnail with a given image.
     /// - Parameter image: Thumbnail image
-    func setThumbnail(_ image: UIImage?) {
+    func updateThumbnail(_ image: UIImage?) {
         DispatchQueue.main.async { [weak self] in
             if let image = image {
                 self?.imageView.image = image
@@ -125,15 +125,15 @@ final class PhotoCardCell: UICollectionViewCell {
         
     }
     
-    /// Set selection status of a photo.
+    /// Updates selection status of a photo.
     /// - Parameter status: Boolean value indicating whether the photo is visually selected.
-    func setSelection(_ status: Bool) {
+    func updateSelection(_ status: Bool) {
         overlay.isHidden = !status
     }
     
     /// Returns UIImageView of the cell to use in scene transition.
     /// - Returns: UIImageView of the cell.
-    func getImageView() -> UIImageView? {
+    func transitionImageView() -> UIImageView? {
         return imageView
     }
 }

@@ -18,7 +18,7 @@ class DataStorage {
             // Send a notification when the number of selected photos changes.
             // Used to display a counter of selected photos in toolbar.
             let notificationCenter = NotificationCenter.default
-            notificationCenter.post(name: Notification.Name("SelectionChanged"), object: nil)
+            notificationCenter.post(name: .selectionChanged, object: nil)
         }
     }
     
@@ -38,7 +38,7 @@ class DataStorage {
         selectedAssets.removeAll()
     }
     
-    func getAssets() -> [PHAsset] {
+    var assets: [PHAsset] {
         return Array(selectedAssets)
     }
     
@@ -46,7 +46,7 @@ class DataStorage {
         selectedAssets.insert(asset)
     }
     
-    func getFirstAdded() -> PHAsset? {
+    func popFirstAsset() -> PHAsset? {
         return selectedAssets.popFirst()
     }
 }

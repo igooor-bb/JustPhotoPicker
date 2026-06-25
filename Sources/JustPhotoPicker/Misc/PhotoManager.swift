@@ -26,7 +26,7 @@ final class PhotoManager: NSObject {
         let recents = smartAlbums.object(at: 0)
         var albumModel: AlbumModel?
         if let title = recents.localizedTitle {
-            let assets = getAssets(fromCollection: recents)
+            let assets = assets(in: recents)
             albumModel = AlbumModel(title: title, assets: assets)
         }
         
@@ -35,7 +35,7 @@ final class PhotoManager: NSObject {
     
     /// Fetch all main photo albums.
     /// - Returns: List of fetched album models.
-    func fetchListOfAlbums() -> [AlbumModel] {
+    func fetchAlbums() -> [AlbumModel] {
         let fetchOptions = PHFetchOptions()
         
         let userAlbums = PHAssetCollection.fetchAssetCollections(
@@ -51,7 +51,7 @@ final class PhotoManager: NSObject {
         for album in allAlbums {
             album.enumerateObjects { [unowned self] (collection, _, _) in
                 if let title = collection.localizedTitle {
-                    let assets = getAssets(fromCollection: collection)
+                    let assets = assets(in: collection)
                     albums.append(.init(title: title, assets: assets))
                 }
             }
@@ -59,10 +59,10 @@ final class PhotoManager: NSObject {
         return albums
     }
     
-    /// Get assets from collection.
+    /// Returns assets from collection.
     /// - Parameter collection: Container collection.
     /// - Returns: Fetch result with assets.
-    private func getAssets(fromCollection collection: PHAssetCollection) -> PHFetchResult<PHAsset> {
+    private func assets(in collection: PHAssetCollection) -> PHFetchResult<PHAsset> {
         let photosOptions = PHFetchOptions()
         photosOptions.sortDescriptors = [
             NSSortDescriptor(key: "creationDate", ascending: true)
@@ -74,12 +74,12 @@ final class PhotoManager: NSObject {
         return PHAsset.fetchAssets(in: collection, options: photosOptions)
     }
     
-    /// Get asset thumbnail of specified size.
+    /// Requests asset thumbnail of specified size.
     /// - Parameters:
     ///   - asset: Source asset.
     ///   - size: Size of the target image.
     ///   - completion: The closure that is executed when the request completes
-    func getThumbnail(for asset: PHAsset, size: CGSize, completion: @escaping (UIImage?) -> Void) {
+    func requestThumbnail(for asset: PHAsset, size: CGSize, completion: @escaping (UIImage?) -> Void) {
         let options = PHImageRequestOptions()
         options.resizeMode = .none
         options.deliveryMode = .highQualityFormat
@@ -92,12 +92,12 @@ final class PhotoManager: NSObject {
         }
     }
     
-    /// Get hight quality image of given asset.
+    /// Requests high quality image of given asset.
     /// - Parameters:
     ///   - asset: Source asset.
     ///   - size: Size of the target image.
     ///   - completion: The closure that is executed when the request completes
-    func getImage(for asset: PHAsset, size: CGSize, completion: @escaping (UIImage?) -> Void) {
+    func requestImage(for asset: PHAsset, size: CGSize, completion: @escaping (UIImage?) -> Void) {
         let options = PHImageRequestOptions()
         options.deliveryMode = .highQualityFormat
         PHImageManager.default().requestImage(
@@ -109,10 +109,10 @@ final class PhotoManager: NSObject {
         }
     }
     
-    /// Get hight quality images from the list of assets.
+    /// Returns high quality images from the list of assets.
     /// - Parameter assets: Source assets.
     /// - Returns: List of original images.
-    func getOriginalImages(for assets: [PHAsset]) -> [UIImage] {
+    func originalImages(for assets: [PHAsset]) -> [UIImage] {
         var originalImages: [UIImage] = []
         
         let options = PHImageRequestOptions()

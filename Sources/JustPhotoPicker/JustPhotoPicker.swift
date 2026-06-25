@@ -17,7 +17,7 @@ public final class JustPhotoPicker: UINavigationController {
     
     private lazy var doneButton: UIBarButtonItem = {
         let done = UIBarButtonItem(
-            title: localizedString(for: "JustPhotoPicker.Done"),
+            title: localizedString(LocalizationKey.done),
             style: .done,
             target: self,
             action: #selector(doneAction))
@@ -36,7 +36,7 @@ public final class JustPhotoPicker: UINavigationController {
     // MARK: - Methods
     public override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = transition
+        delegate = transition
         
         configureToolbar()
         configureNavigationBar()
@@ -46,7 +46,7 @@ public final class JustPhotoPicker: UINavigationController {
         notificationCenter.addObserver(
             self,
             selector: #selector(updateToolbar),
-            name: Notification.Name("SelectionChanged"),
+            name: .selectionChanged,
             object: nil)
         
         // Initialize the first scene to display.
@@ -77,7 +77,7 @@ public final class JustPhotoPicker: UINavigationController {
     
     private func configureToolbar() {
         let cancelButton = UIBarButtonItem(
-            title: localizedString(for: "JustPhotoPicker.Cancel"),
+            title: localizedString(LocalizationKey.cancel),
             style: .plain,
             target: self,
             action: #selector(cancelAction))
@@ -89,7 +89,7 @@ public final class JustPhotoPicker: UINavigationController {
             .init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             doneButton
         ]
-        self.toolbarItems = items
+        toolbarItems = items
         updateToolbar()
     }
     
@@ -102,7 +102,7 @@ public final class JustPhotoPicker: UINavigationController {
     private func updateToolbarLabel() {
         let count = DataStorage.shared.count
         
-        let localizedString = localizedString(for: "JustPhotoPicker.SelectedLabel")
+        let localizedString = localizedString(LocalizationKey.selectedCount)
         let text = String(format: localizedString, count)
         descriptionLabel.title = text
     }
@@ -127,7 +127,7 @@ public final class JustPhotoPicker: UINavigationController {
         DataStorage.shared.removeAll()
         photoPickerDelegate?.didNotSelect(with: self)
         didFinishPicking?([], true)
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @objc private func doneAction() {
@@ -137,15 +137,15 @@ public final class JustPhotoPicker: UINavigationController {
         }
         
         DispatchQueue.main.async { [unowned self] in
-            let assets = DataStorage.shared.getAssets()
+            let assets = DataStorage.shared.assets
             DataStorage.shared.removeAll()
             
             let manager = PhotoManager()
-            let images: [UIImage] = manager.getOriginalImages(for: assets)
+            let images: [UIImage] = manager.originalImages(for: assets)
             
-            photoPickerDelegate?.didSelect(with: self, images: images)
-            didFinishPicking?(images, false)
-            dismiss(animated: true, completion: nil)
+            self.photoPickerDelegate?.didSelect(with: self, images: images)
+            self.didFinishPicking?(images, false)
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

@@ -34,7 +34,7 @@ final class AlbumsViewController: UIViewController {
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = localizedString(for: "JustPhotoPicker.Albums")
+        title = localizedString(LocalizationKey.albums)
         
         // The scene with photo grid is displayed first,
         // so redirect there to correctly display the back button.
@@ -55,7 +55,7 @@ final class AlbumsViewController: UIViewController {
     }
     
     private func fetchAlbums() {
-        albumsData = manager.fetchListOfAlbums()
+        albumsData = manager.fetchAlbums()
         tableView.reloadData()
     }
     
@@ -66,7 +66,7 @@ final class AlbumsViewController: UIViewController {
     }
     
     private func configureTableView() {
-        tableView.register(AlbumCell.self, forCellReuseIdentifier: "AlbumCell")
+        tableView.register(AlbumCell.self, forCellReuseIdentifier: CellReuseIdentifier.album)
         view.addSubview(tableView)
         
         let constraints = [
@@ -87,7 +87,7 @@ extension AlbumsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "AlbumCell",
+            withIdentifier: CellReuseIdentifier.album,
             for: indexPath) as? AlbumCell
         else {
             return UITableViewCell()
@@ -95,7 +95,7 @@ extension AlbumsViewController: UITableViewDataSource {
         
         let index = indexPath.row
         let album = albumsData[index]
-        cell.configureAlbum(with: album)
+        cell.configure(with: album)
         
         return cell
     }
@@ -104,7 +104,7 @@ extension AlbumsViewController: UITableViewDataSource {
         guard let cell = cell as? AlbumCell else { return }
         
         let updateCellClosure: (UIImage?) -> Void = { [unowned self] image in
-            cell.setAlbumThumbnail(image)
+            cell.updateThumbnail(image)
             self.loadingOperations.removeValue(forKey: indexPath)
         }
         
@@ -112,7 +112,7 @@ extension AlbumsViewController: UITableViewDataSource {
         if let dataLoader = loadingOperations[indexPath] {
             if let image = dataLoader.image {
                 // Configure cell if the data already has been loaded.
-                cell.setAlbumThumbnail(image)
+                cell.updateThumbnail(image)
                 loadingOperations.removeValue(forKey: indexPath)
             } else {
                 // Otherwise, add the completion handler to update
@@ -120,14 +120,13 @@ extension AlbumsViewController: UITableViewDataSource {
                 dataLoader.loadingCompleteHandler = updateCellClosure
             }
         } else {
-            // Сreate a data loader for the current index path.
+            // Create a data loader for the current index path.
             if let model = albumsData[indexPath.item].assets.lastObject {
                 let size = CGSize(width: 100, height: 100)
-                if let dataLoader = DataLoadOperation.getImage(for: model, size: size) {
-                    dataLoader.loadingCompleteHandler = updateCellClosure
-                    loadingQueue.addOperation(dataLoader)
-                    loadingOperations[indexPath] = dataLoader
-                }
+                let dataLoader = DataLoadOperation.makeImageLoadOperation(for: model, size: size)
+                dataLoader.loadingCompleteHandler = updateCellClosure
+                loadingQueue.addOperation(dataLoader)
+                loadingOperations[indexPath] = dataLoader
             }
         }
     }
@@ -151,15 +150,14 @@ extension AlbumsViewController: UITableViewDataSourcePrefetching {
             
             if let model = albumsData[indexPath.item].assets.lastObject {
                 let size = CGSize(width: 100, height: 100)
-                if let dataLoader = DataLoadOperation.getImage(for: model, size: size) {
-                    loadingQueue.addOperation(dataLoader)
-                    loadingOperations[indexPath] = dataLoader
-                }
+                let dataLoader = DataLoadOperation.makeImageLoadOperation(for: model, size: size)
+                loadingQueue.addOperation(dataLoader)
+                loadingOperations[indexPath] = dataLoader
             }
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         // Cancel pending data load operations when the data is no longer required.
         for indexPath in indexPaths {
             if let dataLoader = loadingOperations[indexPath] {

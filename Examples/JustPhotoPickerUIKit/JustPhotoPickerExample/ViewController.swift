@@ -28,6 +28,6 @@ class ViewController: UIViewController {
 
             print("Selected \(images.count) images")
         }
-        self.present(photoPicker, animated: true, completion: nil)
+        present(photoPicker, animated: true, completion: nil)
     }
 }

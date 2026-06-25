@@ -9,13 +9,13 @@ import UIKit
 import PhotosUI
 
 class DataLoadOperation: Operation {
-    // MARK: - Public properties
+    // MARK: - Properties
     var image: UIImage?
     var loadingCompleteHandler: ((UIImage?) -> Void)?
     
     // MARK: - Properties
-    private var _asset: PHAsset
-    private var _size: CGSize
+    private var asset: PHAsset
+    private var size: CGSize
     
     override var isAsynchronous: Bool {
         return true
@@ -23,15 +23,15 @@ class DataLoadOperation: Operation {
     
     // MARK: - Methods
     init(_ asset: PHAsset, size: CGSize) {
-        _asset = asset
-        _size = size
+        self.asset = asset
+        self.size = size
     }
     
     override func main() {
         if isCancelled { return }
         
         let manager = PhotoManager()
-        manager.getThumbnail(for: _asset, size: _size) { image in
+        manager.requestThumbnail(for: asset, size: size) { image in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 if self.isCancelled { return }
@@ -42,7 +42,7 @@ class DataLoadOperation: Operation {
     }
     
     // MARK: - Static methods
-    static func getImage(for asset: PHAsset, size: CGSize) -> DataLoadOperation? {
+    static func makeImageLoadOperation(for asset: PHAsset, size: CGSize) -> DataLoadOperation {
         return DataLoadOperation(asset, size: size)
     }
 }

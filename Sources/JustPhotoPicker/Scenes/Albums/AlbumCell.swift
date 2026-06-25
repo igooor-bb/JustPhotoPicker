@@ -88,13 +88,13 @@ final class AlbumCell: UITableViewCell {
         NSLayoutConstraint.activate(constraints)
     }
         
-    func configureAlbum(with model: AlbumModel) {
+    func configure(with model: AlbumModel) {
         albumTitle.text = model.title
         albumItemsCount.text = String(model.count)
         albumImage.image = nil
     }
     
-    func setAlbumThumbnail(_ image: UIImage?) {
+    func updateThumbnail(_ image: UIImage?) {
         if let image = image {
             albumImage.image = image
         } else {

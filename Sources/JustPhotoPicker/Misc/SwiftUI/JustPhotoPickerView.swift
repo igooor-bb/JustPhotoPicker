@@ -18,7 +18,7 @@ public struct JustPhotoPickerView: UIViewControllerRepresentable {
     }
 
     public func makeUIViewController(context: Context) -> JustPhotoPicker {
-        let config = self.configuration ?? JustPhotoPickerConfiguration()
+        let config = configuration ?? JustPhotoPickerConfiguration()
         let photoPicker = JustPhotoPicker(configuration: config)
 
         photoPicker.didFinishPicking = { images, cancelled in

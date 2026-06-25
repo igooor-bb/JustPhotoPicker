@@ -53,7 +53,7 @@ public struct JustPhotoPickerConfiguration {
     /// Background color of scenes.
     public var backgroundColor: UIColor = .systemBackground
     
-    /// Tint color of main ineractive elements.
+    /// Tint color of main interactive elements.
     public var accentColor: UIColor = .systemBlue
     
     /// Color of the description labels text.
