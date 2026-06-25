@@ -7,6 +7,6 @@
 
 import Foundation
 
-internal func localizedString(for key: String) -> String {
+func localizedString(for key: String) -> String {
     return Bundle.local.localizedString(forKey: key, value: "", table: "JustPhotoPickerLocalizable")
 }

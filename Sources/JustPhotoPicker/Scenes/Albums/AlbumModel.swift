@@ -8,12 +8,12 @@
 import Foundation
 import PhotosUI
 
-internal struct AlbumModel {
+struct AlbumModel {
     let title: String
     let count: Int
     let assets: PHFetchResult<PHAsset>
     
-    internal init(title: String, assets: PHFetchResult<PHAsset>) {
+    init(title: String, assets: PHFetchResult<PHAsset>) {
         self.title = title
         self.count = assets.count
         self.assets = assets

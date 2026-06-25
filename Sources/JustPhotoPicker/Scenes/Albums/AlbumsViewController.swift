@@ -8,9 +8,9 @@
 import UIKit
 import PhotosUI
 
-internal final class AlbumsViewController: UIViewController {
-    // MARK: - Public properties
-    public var fetchRecents: Bool = false
+final class AlbumsViewController: UIViewController {
+    // MARK: - Properties
+    var fetchRecents: Bool = false
     
     // MARK: - Interface properties
     private lazy var tableView: UITableView = {
@@ -26,7 +26,6 @@ internal final class AlbumsViewController: UIViewController {
         return tableView
     }()
     
-    // MARK: - Properties
     private let manager = PhotoManager()
     private var albumsData: [AlbumModel] = []
     private let loadingQueue = OperationQueue()

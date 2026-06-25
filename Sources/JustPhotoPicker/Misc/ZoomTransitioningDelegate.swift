@@ -7,16 +7,16 @@
 
 import UIKit
 
-internal protocol ZoomingViewController {
+protocol ZoomingViewController {
     func zoomingImageView(for transition: ZoomTransitioningDelegate) -> UIImageView?
 }
 
-internal enum TransitionState {
+enum TransitionState {
     case initial
     case final
 }
 
-internal final class ZoomTransitioningDelegate: NSObject {
+final class ZoomTransitioningDelegate: NSObject {
     var transitionDuration: TimeInterval = 0.65
     var operation: UINavigationController.Operation = .none
     

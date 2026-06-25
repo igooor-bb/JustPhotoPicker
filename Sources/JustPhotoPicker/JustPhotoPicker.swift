@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class JustPhotoPicker: UINavigationController {
+public final class JustPhotoPicker: UINavigationController {
     // MARK: - Interface properties
     private lazy var descriptionLabel: UIBarButtonItem = {
         let barItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -34,7 +34,7 @@ open class JustPhotoPicker: UINavigationController {
     private let transition = ZoomTransitioningDelegate()
     
     // MARK: - Methods
-    override open func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = transition
         
@@ -55,7 +55,7 @@ open class JustPhotoPicker: UINavigationController {
         viewControllers = [albumsList]
     }
     
-    public required init(configuration: JustPhotoPickerConfiguration) {
+    public init(configuration: JustPhotoPickerConfiguration) {
         DataStorage.shared.removeAll()
         JustPhotoPickerConfiguration.shared = configuration
         super.init(nibName: nil, bundle: nil)

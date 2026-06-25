@@ -8,17 +8,16 @@
 import UIKit
 import PhotosUI
 
-internal final class PhotoGridViewController: UIViewController {
-    // MARK: - Public properties
-    
+final class PhotoGridViewController: UIViewController {
+    // MARK: - Properties
+
     /// Album model item to display in grid.
-    public var albumModel: AlbumModel?
+    var albumModel: AlbumModel?
     
     /// Boolean value Indicates that the album *"Recents"* should be displayed.
     /// It is used when opening a picker.
-    public var fetchRecents: Bool = false
+    var fetchRecents: Bool = false
     
-    // MARK: - Properties
     private var selectedIndexPath: IndexPath?
     private var imagesData = PHFetchResult<PHAsset>()
     private var photoManager = PhotoManager()
@@ -227,7 +226,7 @@ internal final class PhotoGridViewController: UIViewController {
         }
     }
     
-    public func configureDescriptionLabel() {
+    private func configureDescriptionLabel() {
         view.addSubview(descriptionLabel)
         
         var labelHeight: CGFloat = 28

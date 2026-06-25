@@ -8,9 +8,9 @@
 import UIKit
 import PhotosUI
 
-internal final class PhotoPreviewViewController: UIViewController {
+final class PhotoPreviewViewController: UIViewController {
     // MARK: - Interface properties
-    public lazy var imageView: UIImageView = {
+    private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -39,11 +39,11 @@ internal final class PhotoPreviewViewController: UIViewController {
         return scrollView
     }()
     
-    // MARK: - Public properties
-    public var asset: PHAsset!
-    public var image: UIImage!
-    public var imageInitialPortraitHeight: CGFloat!
-    public var imageInitialLandscapeWidth: CGFloat!
+    // MARK: - Properties
+    var asset: PHAsset!
+    var image: UIImage!
+    var imageInitialPortraitHeight: CGFloat!
+    var imageInitialLandscapeWidth: CGFloat!
     
     // MARK: - Properties
     private var imageSizeConstraints: [NSLayoutConstraint] = []

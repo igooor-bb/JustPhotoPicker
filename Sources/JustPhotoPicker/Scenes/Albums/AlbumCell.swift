@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal final class AlbumCell: UITableViewCell {
+final class AlbumCell: UITableViewCell {
     // MARK: - Interface properties
     private lazy var albumImage: UIImageView = {
         let albumImage = UIImageView()
@@ -88,13 +88,13 @@ internal final class AlbumCell: UITableViewCell {
         NSLayoutConstraint.activate(constraints)
     }
         
-    public func configureAlbum(with model: AlbumModel) {
+    func configureAlbum(with model: AlbumModel) {
         albumTitle.text = model.title
         albumItemsCount.text = String(model.count)
         albumImage.image = nil
     }
     
-    public func setAlbumThumbnail(_ image: UIImage?) {
+    func setAlbumThumbnail(_ image: UIImage?) {
         if let image = image {
             albumImage.image = image
         } else {

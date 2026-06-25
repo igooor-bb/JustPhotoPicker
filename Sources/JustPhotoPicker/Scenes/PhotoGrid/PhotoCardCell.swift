@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-internal final class PhotoCardCell: UICollectionViewCell {
+final class PhotoCardCell: UICollectionViewCell {
     // MARK: - Interface properties
     // UIImageView to display a thumbnail.
     private lazy var imageView: UIImageView = {
@@ -114,7 +114,7 @@ internal final class PhotoCardCell: UICollectionViewCell {
     
     /// Set a thumbnail of the cell with a given image.
     /// - Parameter image: Thumbnail image
-    public func setThumbnail(_ image: UIImage?) {
+    func setThumbnail(_ image: UIImage?) {
         DispatchQueue.main.async { [weak self] in
             if let image = image {
                 self?.imageView.image = image
@@ -127,13 +127,13 @@ internal final class PhotoCardCell: UICollectionViewCell {
     
     /// Set selection status of a photo.
     /// - Parameter status: Boolean value indicating whether the photo is visually selected.
-    public func setSelection(_ status: Bool) {
+    func setSelection(_ status: Bool) {
         overlay.isHidden = !status
     }
     
     /// Returns UIImageView of the cell to use in scene transition.
     /// - Returns: UIImageView of the cell.
-    public func getImageView() -> UIImageView? {
+    func getImageView() -> UIImageView? {
         return imageView
     }
 }

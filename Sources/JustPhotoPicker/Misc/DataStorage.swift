@@ -9,8 +9,8 @@ import Foundation
 import PhotosUI
 
 /// Span for temporary storage for selected images.
-internal class DataStorage {
-    public static let shared = DataStorage()
+class DataStorage {
+    static let shared = DataStorage()
     private init() {}
     
     private var selectedAssets = Set<PHAsset>() {
@@ -22,31 +22,31 @@ internal class DataStorage {
         }
     }
     
-    public var count: Int {
+    var count: Int {
         return selectedAssets.count
     }
     
-    public func contains(_ asset: PHAsset) -> Bool {
+    func contains(_ asset: PHAsset) -> Bool {
         return selectedAssets.contains(asset)
     }
     
-    public func remove(_ asset: PHAsset) {
+    func remove(_ asset: PHAsset) {
         selectedAssets.remove(asset)
     }
     
-    public func removeAll() {
+    func removeAll() {
         selectedAssets.removeAll()
     }
     
-    public func getAssets() -> [PHAsset] {
+    func getAssets() -> [PHAsset] {
         return Array(selectedAssets)
     }
     
-    public func insert(_ asset: PHAsset) {
+    func insert(_ asset: PHAsset) {
         selectedAssets.insert(asset)
     }
     
-    public func getFirstAdded() -> PHAsset? {
+    func getFirstAdded() -> PHAsset? {
         return selectedAssets.popFirst()
     }
 }

@@ -8,14 +8,14 @@
 import UIKit
 import PhotosUI
 
-internal final class PhotoManager: NSObject {
-    public func requestAuthorization(completion: @escaping (PHAuthorizationStatus) -> Void) {
+final class PhotoManager: NSObject {
+    func requestAuthorization(completion: @escaping (PHAuthorizationStatus) -> Void) {
         PHPhotoLibrary.requestAuthorization(completion)
     }
     
     /// Fetch only Recents album.
     /// - Returns: Model of fetched Recents album.
-    public func fetchRecentsAlbum() -> AlbumModel? {
+    func fetchRecentsAlbum() -> AlbumModel? {
         let fetchOptions = PHFetchOptions()
         
         let smartAlbums = PHAssetCollection.fetchAssetCollections(
@@ -35,7 +35,7 @@ internal final class PhotoManager: NSObject {
     
     /// Fetch all main photo albums.
     /// - Returns: List of fetched album models.
-    public func fetchListOfAlbums() -> [AlbumModel] {
+    func fetchListOfAlbums() -> [AlbumModel] {
         let fetchOptions = PHFetchOptions()
         
         let userAlbums = PHAssetCollection.fetchAssetCollections(
@@ -79,7 +79,7 @@ internal final class PhotoManager: NSObject {
     ///   - asset: Source asset.
     ///   - size: Size of the target image.
     ///   - completion: The closure that is executed when the request completes
-    public func getThumbnail(for asset: PHAsset, size: CGSize, completion: @escaping (UIImage?) -> Void) {
+    func getThumbnail(for asset: PHAsset, size: CGSize, completion: @escaping (UIImage?) -> Void) {
         let options = PHImageRequestOptions()
         options.resizeMode = .none
         options.deliveryMode = .highQualityFormat
@@ -97,7 +97,7 @@ internal final class PhotoManager: NSObject {
     ///   - asset: Source asset.
     ///   - size: Size of the target image.
     ///   - completion: The closure that is executed when the request completes
-    public func getImage(for asset: PHAsset, size: CGSize, completion: @escaping (UIImage?) -> Void) {
+    func getImage(for asset: PHAsset, size: CGSize, completion: @escaping (UIImage?) -> Void) {
         let options = PHImageRequestOptions()
         options.deliveryMode = .highQualityFormat
         PHImageManager.default().requestImage(
@@ -112,7 +112,7 @@ internal final class PhotoManager: NSObject {
     /// Get hight quality images from the list of assets.
     /// - Parameter assets: Source assets.
     /// - Returns: List of original images.
-    public func getOriginalImages(for assets: [PHAsset]) -> [UIImage] {
+    func getOriginalImages(for assets: [PHAsset]) -> [UIImage] {
         var originalImages: [UIImage] = []
         
         let options = PHImageRequestOptions()

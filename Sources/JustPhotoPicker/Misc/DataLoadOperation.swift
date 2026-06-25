@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-internal class DataLoadOperation: Operation {
+class DataLoadOperation: Operation {
     // MARK: - Public properties
     var image: UIImage?
     var loadingCompleteHandler: ((UIImage?) -> Void)?
@@ -42,7 +42,7 @@ internal class DataLoadOperation: Operation {
     }
     
     // MARK: - Static methods
-    public static func getImage(for asset: PHAsset, size: CGSize) -> DataLoadOperation? {
+    static func getImage(for asset: PHAsset, size: CGSize) -> DataLoadOperation? {
         return DataLoadOperation(asset, size: size)
     }
 }
