@@ -1,11 +1,20 @@
+included:
+  - Package.swift
+  - Example
+  - Sources
+
 disabled_rules:
-  - trailing_whitespace
   - file_length
   - type_body_length
   - function_body_length
   - function_parameter_count
+
 opt_in_rules:
-  - explicit_top_level_acl
+  - empty_count
+  - comment_spacing
   - force_unwrapping
-included:
-  - Source
+  - sorted_imports
+  - void_function_in_ternary
+
+line_length: 120
+warning_threshold: 3
