@@ -21,8 +21,6 @@ final class PhotoCardCell: UICollectionViewCell {
     // UIView which is shown if a cell is selected.
     private let overlay: UIView = {
         let overlay = UIView()
-        let backgroundColor = JustConfig.overlayTintColor
-        overlay.backgroundColor = backgroundColor.withAlphaComponent(0.45)
         overlay.translatesAutoresizingMaskIntoConstraints = false
         return overlay
     }()
@@ -30,7 +28,6 @@ final class PhotoCardCell: UICollectionViewCell {
     // Underlay for the checkmark.
     private lazy var indicatorView: UIView = {
         let indicatorView = UIView()
-        indicatorView.backgroundColor = JustConfig.checkmarkBackgroundColor
         indicatorView.cornerRadius = 16
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
         return indicatorView
@@ -40,7 +37,6 @@ final class PhotoCardCell: UICollectionViewCell {
     private lazy var checkmarkImageView: UIImageView = {
         let checkmarkImage = UIImage(systemName: "checkmark.circle.fill")
         let checkmarkImageView = UIImageView(image: checkmarkImage)
-        checkmarkImageView.tintColor = JustConfig.checkmarkForegroundColor
         checkmarkImageView.translatesAutoresizingMaskIntoConstraints = false
         
         checkmarkImageView.contentMode = .scaleToFill
@@ -63,17 +59,12 @@ final class PhotoCardCell: UICollectionViewCell {
     }
     
     private func setup() {
-        configureContentView()
         configureImageView()
         configureSelectionOverlay()
         overlay.isHidden = true
     }
     
     // MARK: - Interface configuration
-    private func configureContentView() {
-        contentView.cornerRadius = JustConfig.photoCardCornerRadius
-    }
-    
     private func configureImageView() {
         contentView.addSubview(imageView)
         
@@ -111,6 +102,13 @@ final class PhotoCardCell: UICollectionViewCell {
     }
     
     // MARK: - Data configuration
+    func configure(configuration: JustPhotoPickerConfiguration, isSelected: Bool) {
+        contentView.cornerRadius = configuration.photoCardCornerRadius
+        overlay.backgroundColor = configuration.overlayTintColor.withAlphaComponent(0.45)
+        indicatorView.backgroundColor = configuration.checkmarkBackgroundColor
+        checkmarkImageView.tintColor = configuration.checkmarkForegroundColor
+        updateSelection(isSelected)
+    }
     
     /// Updates cell thumbnail with a given image.
     /// - Parameter image: Thumbnail image

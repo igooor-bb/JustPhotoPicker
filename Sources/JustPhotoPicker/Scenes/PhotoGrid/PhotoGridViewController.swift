@@ -10,41 +10,42 @@ import PhotosUI
 
 final class PhotoGridViewController: UIViewController {
     // MARK: - Properties
+    private let configuration: JustPhotoPickerConfiguration
 
     /// Album model item to display in grid.
     var albumModel: AlbumModel?
-    
+
     /// Boolean value Indicates that the album *"Recents"* should be displayed.
     /// It is used when opening a picker.
     var fetchRecents: Bool = false
-    
+
     private var selectedIndexPath: IndexPath?
     private var imagesData = PHFetchResult<PHAsset>()
     private var photoManager = PhotoManager()
     private lazy var loadingQueue = OperationQueue()
     private lazy var loadingOperations: [IndexPath: DataLoadOperation] = [:]
-    
+
     // MARK: - Interface properties
     private var topSpacing: CGFloat = 5
     private var bottomSpacing: CGFloat = 5
     private var leftSpacing: CGFloat = 5
     private var rightSpacing: CGFloat = 5
     private var itemSpacing: CGFloat {
-        let portrait = JustConfig.portraitModeGridInterimSpacing
-        let landscape = JustConfig.landscapeModeGridInterimSpacing
+        let portrait = configuration.portraitModeGridInterimSpacing
+        let landscape = configuration.landscapeModeGridInterimSpacing
         return UIWindow.isLandscape ? landscape : portrait
     }
-    
+
     private var cellWidth: CGFloat {
-        let landscapeNumber = JustConfig.landscapeModeCellsInRow
-        let portraitNumber = JustConfig.portraitModeCellsInRow
+        let landscapeNumber = configuration.landscapeModeCellsInRow
+        let portraitNumber = configuration.portraitModeCellsInRow
         let itemsInRow = CGFloat(UIWindow.isLandscape ? landscapeNumber : portraitNumber)
 
         let spacing: CGFloat = leftSpacing + rightSpacing + 2 * itemSpacing
         let cellWidth = (collectionView.frame.width - spacing) / itemsInRow
         return cellWidth
     }
-    
+
     private lazy var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
@@ -54,17 +55,17 @@ final class PhotoGridViewController: UIViewController {
             left: leftSpacing,
             bottom: bottomSpacing,
             right: rightSpacing)
-        
+
         let collectionView = UICollectionView(
             frame: .zero,
             collectionViewLayout: layout)
-        
+
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.prefetchDataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         return collectionView
     }()
 
@@ -72,45 +73,54 @@ final class PhotoGridViewController: UIViewController {
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = JustConfig.labelColor
+        label.textColor = configuration.labelColor
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
         label.textAlignment = .center
         return label
     }()
-        
+
     // MARK: - Methods
+    init(configuration: JustPhotoPickerConfiguration) {
+        self.configuration = configuration
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         PHPhotoLibrary.shared().register(self)
-        
+
         // Check if a photo album data has already been passed to the controller.
         if let model = albumModel {
             imagesData = model.assets
             title = model.title
             if imagesData.count == 0 {
-                if JustConfig.showsEmptyAlbumLabel {
+                if configuration.showsEmptyAlbumLabel {
                     showEmptyAlbumLabel()
                 }
             }
         }
-        
-        view.backgroundColor = JustConfig.backgroundColor
+
+        view.backgroundColor = configuration.backgroundColor
         configureToolbar()
         configureCollectionView()
         configureSelectionDescriptionLabel()
 
         requestAuthorization()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.collectionViewLayout.invalidateLayout()
     }
-    
+
     private func requestAuthorization() {
         // Check access to photo gallery.
         photoManager.requestAuthorization { [unowned self] status in
@@ -124,56 +134,56 @@ final class PhotoGridViewController: UIViewController {
             }
         }
     }
-    
+
     private func loadAssets() {
         DispatchQueue.main.async { [unowned self] in
             if fetchRecents {
                 albumModel = photoManager.fetchRecentsAlbum()
             }
-            
+
             if let model = albumModel {
                 imagesData = model.assets
                 title = model.title
                 if imagesData.count == 0 {
-                    if JustConfig.showsEmptyAlbumLabel {
+                    if configuration.showsEmptyAlbumLabel {
                         showEmptyAlbumLabel()
                     }
                     return
                 }
             }
-            
+
             collectionView.reloadData()
-            
+
             // Scroll to bottom of collection view.
             let lastItemIndex = IndexPath(item: imagesData.count - 1, section: 0)
             collectionView.scrollToItem(at: lastItemIndex, at: .top, animated: false)
         }
     }
-    
+
     private func showEmptyAlbumLabel() {
         // Show the message if there are no photos in the album.
         collectionView.isHidden = true
-        
+
         let label = UILabel()
         label.text = localizedString(LocalizationKey.emptyAlbum)
-        label.textColor = JustConfig.labelColor
+        label.textColor = configuration.labelColor
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
         let constraints = [
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ]
-        
+
         NSLayoutConstraint.activate(constraints)
     }
-    
+
     private func showPermissionAlert() {
         // If there is no access to photos,
         // show an alert with the ability to go to the settings.
         let title = localizedString(LocalizationKey.permissionRequired)
         let message = localizedString(LocalizationKey.permissionRequiredDescription)
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
+
         let settingsTitle = localizedString(LocalizationKey.settings)
         let settingsAction = UIAlertAction(title: settingsTitle, style: .default) { [weak self] _ in
             self?.dismiss(animated: true, completion: nil)
@@ -184,37 +194,37 @@ final class PhotoGridViewController: UIViewController {
                 UIApplication.shared.open(settingsURL)
             }
         }
-        
+
         let cancelTitle = localizedString(LocalizationKey.cancel)
         let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel) { [weak self] _ in
             self?.dismiss(animated: true, completion: nil)
         }
-        
+
         alert.addAction(settingsAction)
         alert.addAction(cancelAction)
         present(alert, animated: true)
     }
-    
+
     // MARK: - Interface configuration
     private func configureToolbar() {
         navigationController?.isToolbarHidden = false
         toolbarItems = navigationController?.toolbarItems
     }
-    
+
     private func configureCollectionView() {
         collectionView.register(PhotoCardCell.self, forCellWithReuseIdentifier: CellReuseIdentifier.photo)
         view.addSubview(collectionView)
-        
+
         let guide = view.safeAreaLayoutGuide
         let constraints: [NSLayoutConstraint] = [
             collectionView.topAnchor.constraint(equalTo: guide.topAnchor),
             collectionView.leftAnchor.constraint(equalTo: guide.leftAnchor),
             guide.rightAnchor.constraint(equalTo: collectionView.rightAnchor)
         ]
-        
+
         NSLayoutConstraint.activate(constraints)
-        
-        if JustConfig.showsPhotoPreview {
+
+        if configuration.showsPhotoPreview {
             let longPress = UILongPressGestureRecognizer(
                 target: self,
                 action: #selector(handleLongPress(_:)))
@@ -224,14 +234,14 @@ final class PhotoGridViewController: UIViewController {
             collectionView.addGestureRecognizer(longPress)
         }
     }
-    
+
     private func configureSelectionDescriptionLabel() {
         view.addSubview(descriptionLabel)
-        
+
         var labelHeight: CGFloat = 28
-        let selectionLimit = JustConfig.selectionLimit
-        let hideLabel = !JustConfig.showsBottomDescriptionLabel
-        
+        let selectionLimit = configuration.selectionLimit
+        let hideLabel = !configuration.showsBottomDescriptionLabel
+
         if selectionLimit == 1 || hideLabel {
             // Hide description label if it needs to select only one photo
             // or corresponding option is set to true.
@@ -240,7 +250,7 @@ final class PhotoGridViewController: UIViewController {
         } else {
             // Otherwise, show description message according
             // to the need to select a certain number of photos.
-            let isSelectionRequired = JustConfig.isSelectionRequired
+            let isSelectionRequired = configuration.isSelectionRequired
             if isSelectionRequired {
                 let localizedString = localizedString(LocalizationKey.fixedSelection)
                 descriptionLabel.text = String(format: localizedString, selectionLimit)
@@ -249,7 +259,7 @@ final class PhotoGridViewController: UIViewController {
                 descriptionLabel.text = String(format: localizedString, selectionLimit)
             }
         }
-        
+
         let guide = view.safeAreaLayoutGuide
         let constraints: [NSLayoutConstraint] = [
             descriptionLabel.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
@@ -260,30 +270,30 @@ final class PhotoGridViewController: UIViewController {
         ]
         NSLayoutConstraint.activate(constraints)
     }
-    
+
     // MARK: - Navigation
     func presentPhotoPreview(for asset: PHAsset) {
         // Perform transition to a detailed view image.
-        
+
         photoManager.requestThumbnail(for: asset, size: .init()) { [unowned self] image in
             // Get a thumbnail for preview during upload
             // and adjusting the size of UIImageView for the transition.
             guard let image = image else { return }
-            
-            let details = PhotoPreviewViewController()
+
+            let details = PhotoPreviewViewController(configuration: configuration)
             details.image = image
             // The asset is additionally needed for the subsequent
             // download of a high-quality image.
             details.asset = asset
-            
+
             // Calculate initial image size relative to safe area.
             let viewWidth = view.frame.size.width
             let viewHeight = view.safeAreaLayoutGuide.layoutFrame.height
             let ratio = image.size.width / image.size.height
-            
+
             details.imageInitialPortraitHeight = viewWidth / ratio
             details.imageInitialLandscapeWidth = viewHeight * ratio
-            
+
             DispatchQueue.main.async {
                 guard self.navigationController?.topViewController == self else { return }
                 self.navigationController?.pushViewController(details, animated: true)
@@ -297,12 +307,12 @@ extension PhotoGridViewController: UICollectionViewDataSource {
     // swiftlint:disable:next line_length
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? PhotoCardCell else { return }
-        
+
         let updateCellClosure: (UIImage?) -> Void = { [unowned self] image in
             cell.updateThumbnail(image)
             self.loadingOperations.removeValue(forKey: indexPath)
         }
-        
+
         // Check if the corresponding data loader exists.
         if let dataLoader = loadingOperations[indexPath] {
             if let image = dataLoader.image {
@@ -333,7 +343,7 @@ extension PhotoGridViewController: UICollectionViewDataSource {
             loadingOperations.removeValue(forKey: indexPath)
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         imagesData.count
     }
@@ -348,7 +358,7 @@ extension PhotoGridViewController: UICollectionViewDataSource {
         }
         let index = indexPath.item
         let asset = imagesData[index]
-        cell.updateSelection(DataStorage.shared.contains(asset))
+        cell.configure(configuration: configuration, isSelected: DataStorage.shared.contains(asset))
         return cell
     }
 }
@@ -360,7 +370,7 @@ extension PhotoGridViewController: UICollectionViewDataSourcePrefetching {
             // Initiate asynchronous loading of the assets for the cells
             // at the specified index paths.
             if loadingOperations[indexPath] != nil { return }
-            
+
             let model = imagesData[indexPath.item]
             let size = CGSize(width: cellWidth, height: cellWidth)
             let dataLoader = DataLoadOperation.makeImageLoadOperation(for: model, size: size)
@@ -368,7 +378,7 @@ extension PhotoGridViewController: UICollectionViewDataSourcePrefetching {
             loadingOperations[indexPath] = dataLoader
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
         // Cancel pending data load operations when the data is no longer required.
         for indexPath in indexPaths {
@@ -386,12 +396,12 @@ extension PhotoGridViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: cellWidth, height: cellWidth)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.item
         let asset = imagesData[index]
-        
-        let selectionLimit = JustConfig.selectionLimit
+
+        let selectionLimit = configuration.selectionLimit
         if selectionLimit == 1 {
             // If a user can select only one image.
             guard !DataStorage.shared.contains(asset) else {

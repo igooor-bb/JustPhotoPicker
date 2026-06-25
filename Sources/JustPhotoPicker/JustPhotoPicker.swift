@@ -21,7 +21,7 @@ public final class JustPhotoPicker: UINavigationController {
             style: .done,
             target: self,
             action: #selector(doneAction))
-        done.tintColor = JustConfig.accentColor
+        done.tintColor = configuration.accentColor
         return done
     }()
     
@@ -31,6 +31,7 @@ public final class JustPhotoPicker: UINavigationController {
     public var didFinishPicking: (([UIImage], Bool) -> Void)?
     
     // MARK: - Properties
+    private let configuration: JustPhotoPickerConfiguration
     private let transition = ZoomTransitioningDelegate()
     
     // MARK: - Methods
@@ -50,20 +51,20 @@ public final class JustPhotoPicker: UINavigationController {
             object: nil)
         
         // Initialize the first scene to display.
-        let albumsList = AlbumsViewController()
+        let albumsList = AlbumsViewController(configuration: configuration)
         albumsList.fetchRecents = true
         viewControllers = [albumsList]
     }
     
     public init(configuration: JustPhotoPickerConfiguration) {
+        self.configuration = configuration
         DataStorage.shared.removeAll()
-        JustPhotoPickerConfiguration.shared = configuration
         super.init(nibName: nil, bundle: nil)
     }
     
     public convenience init() {
         // Default configuration.
-        self.init(configuration: JustPhotoPickerConfiguration.shared)
+        self.init(configuration: JustPhotoPickerConfiguration())
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -72,7 +73,7 @@ public final class JustPhotoPicker: UINavigationController {
     
     // MARK: - Interface configuration
     private func configureNavigationBar() {
-        navigationBar.tintColor = JustConfig.accentColor
+        navigationBar.tintColor = configuration.accentColor
     }
     
     private func configureToolbar() {
@@ -81,7 +82,7 @@ public final class JustPhotoPicker: UINavigationController {
             style: .plain,
             target: self,
             action: #selector(cancelAction))
-        cancelButton.tintColor = JustConfig.accentColor
+        cancelButton.tintColor = configuration.accentColor
         let items: [UIBarButtonItem] = [
             cancelButton,
             .init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
@@ -110,8 +111,8 @@ public final class JustPhotoPicker: UINavigationController {
     private func checkDoneButtonCondition() {
         // Enable the done button only if it is satisfies requirements
         // set by configuration.
-        let isSelectionRequired = JustConfig.isSelectionRequired
-        let selectionLimit = JustConfig.selectionLimit
+        let isSelectionRequired = configuration.isSelectionRequired
+        let selectionLimit = configuration.selectionLimit
         
         var isEnabled: Bool
         if isSelectionRequired {

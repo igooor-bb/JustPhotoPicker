@@ -15,7 +15,6 @@ final class AlbumCell: UITableViewCell {
         albumImage.layer.borderColor = UIColor.white.cgColor
         albumImage.layer.masksToBounds = true
         albumImage.backgroundColor = .clear
-        albumImage.cornerRadius = JustConfig.albumThumbnailCornerRadius
         albumImage.contentMode = .scaleAspectFill
         albumImage.translatesAutoresizingMaskIntoConstraints = false
         return albumImage
@@ -88,10 +87,11 @@ final class AlbumCell: UITableViewCell {
         NSLayoutConstraint.activate(constraints)
     }
         
-    func configure(with model: AlbumModel) {
+    func configure(with model: AlbumModel, configuration: JustPhotoPickerConfiguration) {
         albumTitle.text = model.title
         albumItemsCount.text = String(model.count)
         albumImage.image = nil
+        albumImage.cornerRadius = configuration.albumThumbnailCornerRadius
     }
     
     func updateThumbnail(_ image: UIImage?) {

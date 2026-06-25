@@ -7,11 +7,7 @@
 
 import UIKit
 
-// swiftlint:disable:next identifier_name
-var JustConfig: JustPhotoPickerConfiguration { return JustPhotoPickerConfiguration.shared }
-
 public struct JustPhotoPickerConfiguration {
-    public static var shared: JustPhotoPickerConfiguration = JustPhotoPickerConfiguration()
     public init() {}
     
     /// Corner radius of photo album thumbnails.
