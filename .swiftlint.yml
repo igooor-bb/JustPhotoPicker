@@ -1,6 +1,6 @@
 included:
   - Package.swift
-  - Example
+  - Examples
   - Sources
 
 disabled_rules:

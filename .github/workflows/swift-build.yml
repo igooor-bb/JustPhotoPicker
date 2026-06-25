@@ -1,0 +1,60 @@
+name: Build and Test Swift Package
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/**'
+      - 'Sources/**'
+      - 'Examples/**'
+      - 'Tests/**'
+      - 'Package.swift'
+      - 'JustPhotoPicker.podspec'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        ios:
+          - version: 'latest'
+            device: 'iPhone 17'
+            xcode: '26.5.0'
+      fail-fast: false
+    runs-on: macos-26
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v4
+    - name: Switch Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: '${{ matrix.ios.xcode }}'
+    - name: Build and Test (iOS ${{ matrix.ios.version }})
+      run: |
+        set -o pipefail
+        xcodebuild test -scheme JustPhotoPicker -destination 'platform=iOS Simulator,OS=${{ matrix.ios.version }},name=${{ matrix.ios.device }}' | xcbeautify
+    - name: Build UIKit Example (iOS ${{ matrix.ios.version }})
+      run: |
+        set -o pipefail
+        xcodebuild build -project Examples/JustPhotoPickerUIKit/JustPhotoPickerExample.xcodeproj -scheme JustPhotoPickerExample -destination 'platform=iOS Simulator,OS=${{ matrix.ios.version }},name=${{ matrix.ios.device }}' | xcbeautify
+    - name: Build SwiftUI Example (iOS ${{ matrix.ios.version }})
+      run: |
+        set -o pipefail
+        xcodebuild build -project Examples/JustPhotoPickerSwiftUI/JustPhotoPickerSwiftUI.xcodeproj -scheme JustPhotoPickerSwiftUI -destination 'platform=iOS Simulator,OS=${{ matrix.ios.version }},name=${{ matrix.ios.device }}' | xcbeautify
+    - name: Validate legacy podspec
+      run: |
+        if command -v pod >/dev/null; then
+          pod ipc spec JustPhotoPicker.podspec > /dev/null
+        else
+          ruby -c JustPhotoPicker.podspec
+        fi
+    - name: Lint Swift sources
+      run: |
+        if command -v swiftlint >/dev/null; then
+          swiftlint
+        else
+          echo "SwiftLint is not installed; skipping lint."
+        fi
